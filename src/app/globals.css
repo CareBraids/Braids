@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter);
+  --font-serif: "Playfair Display", serif;
+
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900);
+  --color-brand-950: var(--brand-950);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Feminine Brand Colors (Fuchsia/Purple) */
+  --brand-50: #fdf4ff;
+  --brand-100: #fae8ff;
+  --brand-200: #f5d0fe;
+  --brand-300: #f0abfc;
+  --brand-400: #e879f9;
+  --brand-500: #d946ef;
+  --brand-600: #c026d3;
+  --brand-700: #a21caf;
+  --brand-800: #86198f;
+  --brand-900: #701a75;
+  --brand-950: #4a044e;
+
+  --radius: 0px;
+  /* SHARP EDGES DESIGN SPEC */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-serif {
+  font-family: var(--font-serif) !important;
+  color: var(--brand-600);
+}
+
+/* Gradient Utilities */
+.bg-brand-gradient {
+  background: linear-gradient(135deg, var(--brand-500) 0%, var(--brand-700) 100%);
+}
+
+.bg-feminine-gradient {
+  background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
+}
+
+.bg-deep-gradient {
+  background: linear-gradient(135deg, var(--brand-900) 0%, var(--brand-950) 100%);
+}
+
+.text-brand-gradient {
+  background: linear-gradient(135deg, var(--brand-600) 0%, var(--brand-800) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hydra-Shield specific soft background */
+.bg-soft-gradient {
+  background: linear-gradient(180deg, #fff0f5 0%, #ffffff 100%);
+}
+
+/* Responsive Utilities */
+.image-fit-mobile {
+  @media (max-width: 768px) {
+    object-position: center;
+    height: 100%;
+    width: 100%;
+  }
+}
