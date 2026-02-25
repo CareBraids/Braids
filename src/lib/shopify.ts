@@ -8,14 +8,18 @@ const storefrontAccessToken = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
 async function shopifyFetch({
   query,
   variables,
+  cache = 'no-store',
+  revalidate,
 }: {
   query: string;
   variables?: any;
+  cache?: RequestCache;
+  revalidate?: number;
 }) {
   const endpoint = `https://${domain}/api/2024-01/graphql.json`;
 
   try {
-    const response = await fetch(endpoint, {
+    const fetchOptions: RequestInit & { next?: { revalidate: number } } = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -25,9 +29,15 @@ async function shopifyFetch({
         query,
         variables,
       }),
-      // Bypass cache for now to ensure we get fresh data and don't cache errors
-      cache: 'no-store',
-    });
+    };
+
+    if (revalidate !== undefined) {
+      fetchOptions.next = { revalidate };
+    } else if (cache) {
+      fetchOptions.cache = cache;
+    }
+
+    const response = await fetch(endpoint, fetchOptions);
 
     if (!response.ok) {
       const text = await response.text();
