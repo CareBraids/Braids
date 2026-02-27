@@ -9,28 +9,28 @@ const benefits = [
   {
     title: "Low-tox materials",
     icon: FlaskConical,
-    imageSrc: "/low_tox_material.png",
+    imageSrc: "/low_tox.png",
     description1: "Standard synthetic hair is often a chemical cocktail of heavy metals and formaldehyde-releasing dyes. These toxins don't just sit on the hair; they leach into your scalp, causing inflammation and long-term biological stress.",
     description2: "CareBraids are crafted with biocompatible, medical-grade fibers that reject these harmful additives. By using pure, certified materials, we ensure that your signature look is as safe as it is stunning. Your beauty should never be a compromise for your health."
   },
   {
     title: "Hydra-shield moisture barrier",
     icon: Droplets,
-    imageSrc: "/hydra_shield_moisture.png",
+    imageSrc: "/hydra-sheild.png",
     description1: "The silent conflict of traditional braiding: hair that repels moisture while pulling it away from your own natural strands. This creates a cycle of dryness that leads to irreversible breakage.",
     description2: "We engineered a surface that breathes. Our bio-mimetic macadamia infusion mimics the natural hair cuticle, sealing vital hydration deep within each fiber for six full weeks. No plastic sheen, no brittleness—just the soft, hydrated glow of hair that is truly protected."
   },
   {
     title: "Scalp friendly",
     icon: Heart,
-    imageSrc: "/scalp_freindly.png",
+    imageSrc: "/comfort_lead.png",
     description1: "The industry norm relies on alkaline coatings to force a synthetic shine, a primary trigger for chronic scalp inflammation and the notorious \"braid itch.\"",
     description2: "CareBraids are pH-balanced and designed for physiological comfort. By respecting your skin's natural barrier, we've eliminated the irritation that often follows new styles. Finally, you can wear your beauty without the burden of discomfort."
   },
   {
     title: "Independently safety tested",
     icon: ShieldCheck,
-    imageSrc: "/independent_safety.png",
+    imageSrc: "/independency.png",
     description1: "We believe that safety shouldn't be a promise; it should be a proven fact. While others hide behind self-certification, we open our products to the most rigorous clinical audits.",
     description2: "Every batch of CareBraids is subjected to 3rd-party laboratory testing that goes beyond industry norms. We screen for over 300 harmful substances to ensure global safety standards aren't just met—they are redefined. This is integrity you can feel in every strand."
   }

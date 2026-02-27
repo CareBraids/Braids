@@ -47,8 +47,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Designed to protect your hair.<br />
-            Lab tested for reassurance.
+            Created to help your hair retain moisture
           </motion.p>
 
           <motion.div

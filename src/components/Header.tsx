@@ -77,7 +77,7 @@ export default function Header() {
               <Search className="w-5 h-5" />
             </button>
             <Link
-              href={`https://${process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN}/account`}
+              href="/login"
               className="hidden md:block transition-all active:opacity-60 hover:opacity-80 text-[#601438]"
             >
               <User className="w-5 h-5" />
@@ -144,7 +144,7 @@ export default function Header() {
               </nav>
               <div className="mt-auto p-6 bg-white border-t border-[#601438]/10">
                 <Link
-                  href={`https://${process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN}/account`}
+                  href="/login"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="flex items-center gap-4 text-[#601438] font-medium"
                 >

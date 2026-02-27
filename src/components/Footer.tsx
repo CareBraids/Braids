@@ -45,16 +45,12 @@ export default function Footer() {
         {/* Top Section: Business Info & VIP List */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 pb-12 border-b border-[#fdf4ff]">
           <div className="space-y-8">
-            <h4 className="text-2xl font-serif text-[#601438]">Visit Us</h4>
+            <h4 className="text-2xl font-serif text-[#601438]">Customer Care</h4>
             <div className="space-y-6 text-sm font-light text-gray-600">
 
               <div className="flex items-center gap-4 hover:text-[#601438] transition-colors">
                 <Mail className="w-5 h-5 text-[#601438] shrink-0" />
                 <p>support@carebraids.com</p>
-              </div>
-              <div className="flex items-center gap-4">
-                <Clock className="w-5 h-5 text-[#601438] shrink-0" />
-                <p className="text-2xl font-medium text-[#601438]">24/7 Open</p>
               </div>
             </div>
 
@@ -62,7 +58,7 @@ export default function Footer() {
 
           <div className="space-y-6">
             <h4 className="text-2xl font-serif text-[#601438]">Join our VIP List</h4>
-            <p className="text-[#601438]/60 font-light">Subscribe to receive updates, access to exclusive deals, and more.</p>
+            <p className="text-[#601438]/60 font-light">Be first to access new launches and stay up to date with our conscious collections.</p>
             <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
               <div className="relative group max-w-md">
                 <input
