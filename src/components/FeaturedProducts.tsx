@@ -95,7 +95,7 @@ export default function FeaturedProducts({ products = [] }: FeaturedProductsProp
               `}</style>
 
               {displayProducts.map((product) => (
-                <div key={product.id || product.handle} className="w-[85vw] sm:w-[280px] lg:w-[320px] flex-none snap-start">
+                <div key={product.id || product.handle} className="w-[65vw] sm:w-[280px] lg:w-[320px] flex-none snap-start">
                   <ProductCard {...product} />
                 </div>
               ))}

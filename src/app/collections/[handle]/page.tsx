@@ -52,7 +52,7 @@ export default function CollectionPage({ params }: { params: Promise<{ handle: s
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 sm:gap-x-10 gap-y-10 sm:gap-y-16">
           {mockProducts.map((product) => (
             <ProductCard key={product.handle} {...product} />
           ))}

@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import CartDrawer from './CartDrawer';
 import SearchSystem from './SearchSystem';
 import { useCart } from './CartProvider';
+import { navigateToAccount } from '@/app/actions/auth';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -76,12 +77,14 @@ export default function Header() {
             >
               <Search className="w-5 h-5" />
             </button>
-            <Link
-              href="/login"
-              className="hidden md:block transition-all active:opacity-60 hover:opacity-80 text-[#601438]"
-            >
-              <User className="w-5 h-5" />
-            </Link>
+            <form action={navigateToAccount} className="hidden md:block">
+              <button
+                type="submit"
+                className="transition-all active:opacity-60 hover:opacity-80 text-[#601438] flex items-center"
+              >
+                <User className="w-5 h-5" />
+              </button>
+            </form>
             <button
               onClick={openCart}
               className="relative transition-all active:opacity-60 hover:opacity-80 text-[#601438]"
@@ -143,14 +146,15 @@ export default function Header() {
                 ))}
               </nav>
               <div className="mt-auto p-6 bg-white border-t border-[#601438]/10">
-                <Link
-                  href="/login"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center gap-4 text-[#601438] font-medium"
-                >
-                  <User className="w-6 h-6" />
-                  My Account
-                </Link>
+                <form action={navigateToAccount} onSubmit={() => setIsMobileMenuOpen(false)}>
+                  <button
+                    type="submit"
+                    className="flex items-center gap-4 text-[#601438] font-medium w-full text-left"
+                  >
+                    <User className="w-6 h-6" />
+                    My Account
+                  </button>
+                </form>
               </div>
             </motion.div>
           </>

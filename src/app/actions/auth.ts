@@ -69,3 +69,12 @@ export async function getCustomerData() {
   const data = await getCustomer(token);
   return data;
 }
+
+export async function navigateToAccount() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get('shopify_customer_token')?.value;
+  if (token) {
+    redirect('/account');
+  }
+  redirect('/login');
+}

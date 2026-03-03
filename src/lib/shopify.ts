@@ -304,3 +304,52 @@ export async function getCustomer(customerAccessToken: string) {
   const data = await shopifyFetch({ query, variables: { customerAccessToken } });
   return data?.customer || null;
 }
+
+/**
+ * Get customer details specific to the Account Dashboard
+ */
+export async function getCustomerDetails(customerAccessToken: string) {
+  const query = `
+    query getCustomerDetails($customerAccessToken: String!) {
+      customer(customerAccessToken: $customerAccessToken) {
+        id
+        firstName
+        lastName
+        email
+        phone
+        addresses(first: 5) {
+          edges {
+            node {
+              id
+              address1
+              address2
+              city
+              province
+              country
+              zip
+            }
+          }
+        }
+        orders(first: 10, sortKey: PROCESSED_AT, reverse: true) {
+          edges {
+            node {
+              id
+              orderNumber
+              processedAt
+              financialStatus
+              fulfillmentStatus
+              totalPrice {
+                amount
+                currencyCode
+              }
+              statusUrl
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const data = await shopifyFetch({ query, variables: { customerAccessToken } });
+  return data?.customer || null;
+}
