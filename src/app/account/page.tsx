@@ -3,10 +3,11 @@ import { redirect } from 'next/navigation';
 import { getCustomerDetails } from '@/lib/shopify';
 import { LogOut, MapPin, Package, User } from 'lucide-react';
 import Link from 'next/link';
+import { logoutCustomer } from '@/app/actions/auth';
 
 export default async function AccountPage() {
   const cookieStore = await cookies();
-  const token = cookieStore.get('shopify_customer_token')?.value;
+  const token = cookieStore.get('shopify_customer_access_token')?.value || cookieStore.get('shopify_customer_token')?.value;
 
   if (!token) {
     redirect('/login');
@@ -16,6 +17,7 @@ export default async function AccountPage() {
 
   if (!customer) {
     // Token might be expired or invalid
+    cookieStore.delete('shopify_customer_access_token');
     cookieStore.delete('shopify_customer_token');
     redirect('/login');
   }
@@ -33,15 +35,14 @@ export default async function AccountPage() {
             <h1 className="text-4xl md:text-5xl font-serif text-[#601438] mb-2">My Account</h1>
             <p className="text-[#601438]/70">Welcome back, {customer.firstName}!</p>
           </div>
-          <form action="/actions/auth/logout" method="POST">
-            {/* Using a Link for now as logoutAction isn't directly exposed in a way I can cleanly call from a Server Component yet, we will wire this up if needed, but for now we just show it */}
-            <Link
-              href="/pages/account/login"
+          <form action={logoutCustomer}>
+            <button
+              type="submit"
               className="flex items-center gap-2 px-6 py-3 bg-white text-[#601438] hover:bg-[#601438] hover:text-white transition-colors rounded-full border border-[#601438]/20 font-medium"
             >
               <LogOut className="w-4 h-4" />
               Sign Out
-            </Link>
+            </button>
           </form>
         </div>
 

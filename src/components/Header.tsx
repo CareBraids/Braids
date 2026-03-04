@@ -10,7 +10,11 @@ import SearchSystem from './SearchSystem';
 import { useCart } from './CartProvider';
 import { navigateToAccount } from '@/app/actions/auth';
 
-export default function Header() {
+interface HeaderProps {
+  userName?: string | null;
+}
+
+export default function Header({ userName }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const { isCartOpen, openCart, closeCart, cartCount } = useCart();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -82,7 +86,11 @@ export default function Header() {
                 type="submit"
                 className="transition-all active:opacity-60 hover:opacity-80 text-[#601438] flex items-center"
               >
-                <User className="w-5 h-5" />
+                {userName ? (
+                  <span className="text-sm font-medium">Hi, {userName}</span>
+                ) : (
+                  <User className="w-5 h-5" />
+                )}
               </button>
             </form>
             <button

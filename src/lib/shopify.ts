@@ -206,103 +206,51 @@ export async function createCart(lines: { merchandiseId: string; quantity: numbe
   return data?.cartCreate?.cart || null;
 }
 
-/**
- * Create a new customer (Registration).
- */
-export async function createCustomer(input: any) {
-  const query = `
-    mutation customerCreate($input: CustomerCreateInput!) {
-      customerCreate(input: $input) {
-        customer {
-          id
-          email
-          firstName
-          lastName
-        }
-        customerUserErrors {
-          code
-          field
-          message
-        }
-      }
-    }
-  `;
-
-  const data = await shopifyFetch({ query, variables: { input } });
-  return data?.customerCreate;
+async function getCustomerApiEndpoint() {
+  const res = await fetch(`https://${domain}/.well-known/customer-account-api`, {
+    next: { revalidate: 3600 }
+  });
+  const data = await res.json();
+  return data.graphql_api;
 }
 
 /**
- * Login a customer and get an access token.
+ * Utility function to interact with the Shopify Customer Account API
  */
-export async function createCustomerAccessToken(input: any) {
-  const query = `
-    mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
-      customerAccessTokenCreate(input: $input) {
-        customerAccessToken {
-          accessToken
-          expiresAt
-        }
-        customerUserErrors {
-          code
-          field
-          message
-        }
-      }
-    }
-  `;
+async function customerFetch({
+  query,
+  variables,
+  customerAccessToken,
+}: {
+  query: string;
+  variables?: any;
+  customerAccessToken: string;
+}) {
+  const endpoint = await getCustomerApiEndpoint();
 
-  const data = await shopifyFetch({ query, variables: { input } });
-  return data?.customerAccessTokenCreate;
-}
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': customerAccessToken,
+      'Origin': process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
+    },
+    body: JSON.stringify({ query, variables }),
+    cache: 'no-store'
+  });
 
-/**
- * Get customer details and orders using their access token.
- */
-export async function getCustomer(customerAccessToken: string) {
-  const query = `
-    query getCustomer($customerAccessToken: String!) {
-      customer(customerAccessToken: $customerAccessToken) {
-        id
-        firstName
-        lastName
-        email
-        phone
-        orders(first: 20, sortKey: PROCESSED_AT, reverse: true) {
-          edges {
-            node {
-              id
-              orderNumber
-              processedAt
-              financialStatus
-              fulfillmentStatus
-              totalPrice {
-                amount
-                currencyCode
-              }
-              lineItems(first: 5) {
-                edges {
-                  node {
-                    title
-                    quantity
-                    variant {
-                      title
-                      image {
-                        url
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `;
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(`Customer API error: ${response.status} ${response.statusText} \n ${text}`);
+  }
 
-  const data = await shopifyFetch({ query, variables: { customerAccessToken } });
-  return data?.customer || null;
+  const { data, errors } = await response.json();
+  if (errors) {
+    console.error('Customer GraphQL Errors:', JSON.stringify(errors, null, 2));
+    throw new Error('Failed to fetch from Customer API');
+  }
+
+  return data;
 }
 
 /**
@@ -310,39 +258,38 @@ export async function getCustomer(customerAccessToken: string) {
  */
 export async function getCustomerDetails(customerAccessToken: string) {
   const query = `
-    query getCustomerDetails($customerAccessToken: String!) {
-      customer(customerAccessToken: $customerAccessToken) {
+    query getCustomerDetails {
+      customer {
         id
         firstName
         lastName
-        email
-        phone
-        addresses(first: 5) {
-          edges {
-            node {
-              id
-              address1
-              address2
-              city
-              province
-              country
-              zip
-            }
-          }
+        emailAddress {
+          emailAddress
         }
-        orders(first: 10, sortKey: PROCESSED_AT, reverse: true) {
+        phoneNumber {
+          phoneNumber
+        }
+        defaultAddress {
+          id
+          address1
+          address2
+          city
+          zoneCode
+          territoryCode
+          zip
+        }
+        orders(first: 10, sortKey: CREATED_AT, reverse: true) {
           edges {
             node {
               id
-              orderNumber
-              processedAt
+              number
+              createdAt
               financialStatus
               fulfillmentStatus
               totalPrice {
                 amount
                 currencyCode
               }
-              statusUrl
             }
           }
         }
@@ -350,6 +297,32 @@ export async function getCustomerDetails(customerAccessToken: string) {
     }
   `;
 
-  const data = await shopifyFetch({ query, variables: { customerAccessToken } });
-  return data?.customer || null;
+  const rawData = await customerFetch({ query, customerAccessToken });
+  if (!rawData?.customer) return null;
+  const c = rawData.customer;
+
+  // Transform Customer API data to match the UI expectations (which were built for Storefront API)
+  return {
+    id: c.id,
+    firstName: c.firstName,
+    lastName: c.lastName,
+    email: c.emailAddress?.emailAddress || '',
+    phone: c.phoneNumber?.phoneNumber || '',
+    addresses: {
+      edges: c.defaultAddress ? [{ node: c.defaultAddress }] : []
+    },
+    orders: {
+      edges: c.orders?.edges?.map((edge: any) => ({
+        node: {
+          id: edge.node.id,
+          orderNumber: edge.node.number,
+          processedAt: edge.node.createdAt,
+          financialStatus: edge.node.financialStatus,
+          fulfillmentStatus: edge.node.fulfillmentStatus,
+          totalPrice: edge.node.totalPrice,
+          statusUrl: ''
+        }
+      })) || []
+    }
+  };
 }

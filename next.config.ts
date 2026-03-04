@@ -21,6 +21,11 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN: process.env.SHOPIFY_STORE_DOMAIN,
   },
+  experimental: {
+    serverActions: {
+      allowedOrigins: ['localhost:3000', '*.devtunnels.ms']
+    }
+  }
 };
 
 export default nextConfig;
