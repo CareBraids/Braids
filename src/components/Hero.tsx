@@ -37,18 +37,40 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            Moisture First
-            Braiding Hair.
+            Finally.
+            <br />
+            Braiding Hair You Can Trust.
           </motion.h1>
 
           <motion.p
-            className="max-w-xl text-lg md:text-xl font-normal tracking-wide mb-10 text-[#5a2a3f]"
+            className="max-w-xl text-lg md:text-xl font-normal tracking-wide mb-8 text-[#5a2a3f]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Created to help your hair retain moisture
+            Professionally tested fibres designed to protect your hair and retain moisture.
           </motion.p>
+
+          <motion.div
+            className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-gradient-to-br from-white/70 to-white/30 backdrop-blur-xl border border-white/80 shadow-[0_8px_32px_0_rgba(96,20,56,0.15)] mb-10 w-auto group cursor-default"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <div className="flex-shrink-0 flex items-center justify-center drop-shadow-md transition-transform duration-500 group-hover:scale-110">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[1.75rem] h-[1.75rem] md:w-9 md:h-9">
+                {/* Thick outer border */}
+                <path d="M16 29c0 0 11-5.5 11-14V8L16 3 5 8v7c0 8.5 11 14 11 14z" fill="#601438"/>
+                {/* Inner light region */}
+                <path d="M16 26.5C16 26.5 7 21.5 7 14.5V9.5L16 5.5l9 4v5c0 7-9 12-9 12z" fill="#fdf4ff"/>
+                {/* Inner purple core */}
+                <path d="M16 24.5C16 24.5 8.5 20 8.5 14.5V10.5L16 7.5l7.5 3v4c0 5.5-7.5 10-7.5 10z" fill="#601438"/>
+                {/* Checkmark */}
+                <path d="M11.5 15l3 3 6-6" stroke="#fdf4ff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <span className="font-semibold text-[#601438] text-sm md:text-lg pr-2 tracking-wide drop-shadow-sm">Lab Tested Fibres</span>
+          </motion.div>
 
           <motion.div
             className="flex flex-row gap-3 sm:gap-4 w-full sm:w-auto mt-6"

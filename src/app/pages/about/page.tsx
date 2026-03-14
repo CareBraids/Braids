@@ -7,33 +7,57 @@ import Image from 'next/image';
 
 export default function AboutPage() {
   return (
-    <div className="relative pt-32 min-h-screen">
-      {/* Global Blurred Background Layer */}
-      <div className="fixed inset-0 z-[-50]">
-        <Image
-          src="/global_background_image.png"
-          alt="Atmosphere"
-          fill
-          unoptimized={true}
-          className="object-cover opacity-80 blur-md"
-        />
-        {/* Soft overlay to ensure text remains perfectly readable */}
-        <div className="absolute inset-0 bg-white/20 mix-blend-overlay"></div>
-      </div>
+    <div className="relative pt-32 min-h-screen bg-white">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left Column Text Content */}
+          <div className="space-y-8 flex flex-col justify-center">
+            <div>
+              <h1 className="text-5xl md:text-6xl font-serif text-[#601438] mb-6">Our Story</h1>
+              <div className="w-full h-[1px] bg-gradient-to-r from-[#601438]/20 to-transparent"></div>
+            </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 pb-24 text-center relative z-10">
-        <h1 className="text-5xl md:text-8xl font-serif italic text-[#601438] mb-8 mt-12">Our Journey</h1>
-        <p className="text-[#601438]/80 font-light text-xl leading-relaxed max-w-3xl mx-auto uppercase tracking-widest bg-white/40 backdrop-blur-sm px-6 py-2 inline-block">
-          Empowering beauty through quality and innovation
-        </p>
-      </div>
+            <div className="space-y-6 text-[#601438]/90 font-serif leading-relaxed text-lg md:text-xl font-light">
+              <p>
+                Braiding hair has been part of protective styling for decades. Yet the materials used to create synthetic braiding fibres have rarely been questioned.
+              </p>
+              <p>
+                CareBraids was created after recognizing that the fibres used in braiding hair sit close to the scalp for weeks at a time, yet very little attention had been given to their material quality.
+              </p>
+              <p>
+                Our team of scientists and fiber experts set out to change this, developing a safer, low-tox alternative that's rigorously screened and designed to be scalp-friendly.
+              </p>
+              <p>
+                Our mission is simple: to bring greater transparency, care, and higher standards to braiding hair.
+              </p>
+              <p className="italic font-medium">
+                This is only the beginning of a new standard in braiding hair.
+              </p>
+            </div>
 
-      <div className="relative z-10">
-        <BrandStory />
+            <div className="pt-6">
+              <a href="/collections/all" className="inline-block bg-[#601438] text-white px-8 md:px-12 py-4 text-xs md:text-sm font-bold tracking-[0.2em] uppercase hover:bg-[#4a0e2d] transition-colors">
+                Discover Carebraids
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column Image Content */}
+          <div className="relative h-[500px] md:h-[700px] w-full rounded-sm overflow-hidden shadow-xl border border-white/40">
+            <Image
+              src="/our_story.png"
+              alt="Carebraids Story - Woman with Braids"
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
+            />
+          </div>
+        </div>
       </div>
 
       <section className="py-24 px-6 md:px-12 max-w-4xl mx-auto text-center relative z-10">
-        <div className="space-y-8 bg-white/85 backdrop-blur-xl p-12 md:p-16 shadow-2xl border border-[#601438]/10 rounded-none">
+        <div className="space-y-8 p-6 md:p-12">
           <h2 className="text-4xl md:text-5xl font-serif text-[#601438]">Sustainability & Safety</h2>
           <div className="w-16 h-[1px] bg-[#601438] mx-auto opacity-30"></div>
           <p className="text-[#601438]/90 font-light text-lg md:text-xl leading-relaxed">

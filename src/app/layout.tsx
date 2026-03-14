@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { cn } from '@/lib/utils';
 import { cookies } from 'next/headers';
-import { getCustomerDetails } from '@/lib/shopify';
+import { getCustomerDetails, getProducts } from '@/lib/shopify';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -36,6 +36,14 @@ export default async function RootLayout({
       console.error("Failed to fetch user details for Header navigation", e);
     }
   }
+
+  let trendingProducts: any[] = [];
+  try {
+    // Fetch 4 products to use for the Search modal's popular/trending sections
+    trendingProducts = await getProducts(4);
+  } catch (e) {
+    console.error("Failed to fetch products for layout", e);
+  }
   return (
     <html lang="en">
       <head>
@@ -45,7 +53,7 @@ export default async function RootLayout({
       </head>
       <body className={cn(inter.variable, 'font-sans bg-white text-gray-900 antialiased')}>
         <CartProvider>
-          <Header userName={userName} />
+          <Header userName={userName} trendingProducts={trendingProducts} />
           <main className="min-h-screen">{children}</main>
           <Footer />
           <CookieBanner />

@@ -12,9 +12,10 @@ import { navigateToAccount } from '@/app/actions/auth';
 
 interface HeaderProps {
   userName?: string | null;
+  trendingProducts?: any[];
 }
 
-export default function Header({ userName }: HeaderProps) {
+export default function Header({ userName, trendingProducts = [] }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const { isCartOpen, openCart, closeCart, cartCount } = useCart();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -57,9 +58,8 @@ export default function Header({ userName }: HeaderProps) {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8 lg:space-x-10">
             {[
-              { label: 'Shop All', href: '/collections/all' },
-              { label: "Shop's Pack", href: '/collections/shops-pack' },
-              { label: 'Our Difference', href: '/pages/benefits' },
+              { label: 'Shop', href: '/collections/all' },
+              { label: 'Why CareBraids?', href: '/pages/benefits' },
               { label: 'Our Story', href: '/pages/about' },
             ].map((item) => (
               <Link
@@ -110,7 +110,7 @@ export default function Header({ userName }: HeaderProps) {
 
       {/* Slide-out components */}
       <CartDrawer />
-      <SearchSystem isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      <SearchSystem isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} trendingProducts={trendingProducts} />
 
       {/* Mobile Menu Slide-out */}
       <AnimatePresence>
@@ -138,9 +138,8 @@ export default function Header({ userName }: HeaderProps) {
               </div>
               <nav className="p-6 flex flex-col space-y-6 overflow-y-auto w-full">
                 {[
-                  { label: 'Shop All', href: '/collections/all' },
-                  { label: "Shop's Pack", href: '/collections/shops-pack' },
-                  { label: 'Our Difference', href: '/pages/benefits' },
+                  { label: 'Shop', href: '/collections/all' },
+                  { label: 'Why CareBraids?', href: '/pages/benefits' },
                   { label: 'Our Story', href: '/pages/about' },
                 ].map((item) => (
                   <Link

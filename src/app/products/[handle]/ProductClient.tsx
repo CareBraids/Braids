@@ -26,12 +26,27 @@ export default function ProductClient({ product }: { product: any }) {
 
   const images = product?.images?.edges?.map((e: any) => e.node.url) || ['/product_1.png'];
   const variants = product?.variants?.edges?.map((e: any) => e.node) || [];
+  
+  // Extract options if they exist
+  const options = product?.options || [];
+  const colorOption = options.find((opt: any) => opt.name.toLowerCase() === 'color' || opt.name.toLowerCase() === 'colour');
 
   const [selectedVariantId, setSelectedVariantId] = useState<string | null>(
     variants.length > 0 ? variants[0].id : null
   );
 
   const { addItem } = useCart();
+
+  const handleVariantSelect = (variantId: string) => {
+    setSelectedVariantId(variantId);
+    const variant = variants.find((v: any) => v.id === variantId);
+    if (variant && variant.image && variant.image.url) {
+      const idx = images.indexOf(variant.image.url);
+      if (idx !== -1) {
+        setActiveImage(idx);
+      }
+    }
+  };
 
   const handleAddToCart = () => {
     const variant = variants.find((v: any) => v.id === selectedVariantId) || variants[0];
@@ -119,21 +134,34 @@ export default function ProductClient({ product }: { product: any }) {
             {variants.length > 0 && variants[0].title !== 'Default Title' && (
               <div className="space-y-6">
                 <h4 className="text-[10px] font-bold tracking-widest uppercase text-brand-950">
-                  Select Variant:
+                  Select {colorOption ? colorOption.name : 'Variant'}:
                   <span className="font-light text-brand-900/60 ml-2">
                     {variants.find((v: any) => v.id === selectedVariantId)?.title}
                   </span>
                 </h4>
                 <div className="flex flex-wrap gap-3">
-                  {variants.map((variant: any) => (
-                    <button
-                      key={variant.id}
-                      onClick={() => setSelectedVariantId(variant.id)}
-                      className={`px-4 py-2 text-[10px] font-bold tracking-widest uppercase border transition-all ${selectedVariantId === variant.id ? 'border-brand-950 bg-brand-950 text-white' : 'border-brand-100 text-brand-900 hover:border-brand-400'}`}
-                    >
-                      {variant.title}
-                    </button>
-                  ))}
+                  {variants.map((variant: any) => {
+                    const isSelected = selectedVariantId === variant.id;
+                    const isAvailable = variant.availableForSale;
+                    return (
+                      <button
+                        key={variant.id}
+                        onClick={() => {
+                          if (isAvailable) handleVariantSelect(variant.id);
+                        }}
+                        disabled={!isAvailable}
+                        className={`px-4 py-2 text-[10px] font-bold tracking-widest uppercase border transition-all ${
+                          isSelected 
+                            ? 'border-brand-950 bg-brand-950 text-white' 
+                            : isAvailable 
+                              ? 'border-brand-100 text-brand-900 hover:border-brand-400' 
+                              : 'border-gray-200 text-gray-400 cursor-not-allowed opacity-60 line-through'
+                        }`}
+                      >
+                        {variant.title}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             )}

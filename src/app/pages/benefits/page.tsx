@@ -7,32 +7,36 @@ import { FlaskConical, Droplets, Heart, ShieldCheck } from 'lucide-react';
 
 const benefits = [
   {
+    id: "low-tox",
     title: "Low-tox materials",
     icon: FlaskConical,
-    imageSrc: "/low_tox.png",
-    description1: "Standard synthetic hair is often a chemical cocktail of heavy metals and formaldehyde-releasing dyes. These toxins don't just sit on the hair; they leach into your scalp, causing inflammation and long-term biological stress.",
-    description2: "CareBraids are crafted with biocompatible, medical-grade fibers that reject these harmful additives. By using pure, certified materials, we ensure that your signature look is as safe as it is stunning. Your beauty should never be a compromise for your health."
+    imageSrc: "/low_tox.jpeg",
+    description1: "For years, the materials used to create synthetic braiding hair have largely gone overlooked. Yet the fibres used in protective styles sit close to the scalp for weeks at a time. CareBraids was created to bring greater transparency and higher standards to braiding hair.",
+    description2: "Our fibres are independently screened for heavy metals and restricted substances, helping to support a cleaner and more comfortable braiding experience. Because what touches your hair should meet a higher standard."
   },
   {
+    id: "hydra-shield",
     title: "Hydra-shield moisture barrier",
     icon: Droplets,
     imageSrc: "/hydra-sheild.png",
-    description1: "The silent conflict of traditional braiding: hair that repels moisture while pulling it away from your own natural strands. This creates a cycle of dryness that leads to irreversible breakage.",
-    description2: "We engineered a surface that breathes. Our bio-mimetic macadamia infusion mimics the natural hair cuticle, sealing vital hydration deep within each fiber for six full weeks. No plastic sheen, no brittleness—just the soft, hydrated glow of hair that is truly protected."
+    description1: "Traditional braiding hair can sometimes feel dry against natural hair, especially during long-term wear. CareBraids were designed differently.",
+    description2: "Our Hydra-Shield technology helps support moisture retention while maintaining a soft, flexible fibre that moves naturally with your hair. The result is braiding hair that looks beautiful while helping your natural hair feel comfortable throughout wear."
   },
   {
+    id: "scalp-friendly",
     title: "Scalp friendly",
     icon: Heart,
-    imageSrc: "/comfort_lead.png",
-    description1: "The industry norm relies on alkaline coatings to force a synthetic shine, a primary trigger for chronic scalp inflammation and the notorious \"braid itch.\"",
-    description2: "CareBraids are pH-balanced and designed for physiological comfort. By respecting your skin's natural barrier, we've eliminated the irritation that often follows new styles. Finally, you can wear your beauty without the burden of discomfort."
+    imageSrc: "/comfort_led.jpeg",
+    description1: "The industry norm often relies on alkaline coatings to create a synthetic shine. These coatings can disrupt the scalp’s natural balance and are widely linked to irritation and the well known “braid itch.”",
+    description2: "CareBraids fibres are pH balanced and designed with scalp comfort in mind. By respecting your skin’s natural barrier, our fibres help reduce the irritation that often follows new styles. The result is braiding hair that feels lighter, calmer and easier to wear so you can enjoy your style without the discomfort."
   },
   {
-    title: "Independently safety tested",
+    id: "safety-tested",
+    title: "Independently tested for safety",
     icon: ShieldCheck,
     imageSrc: "/independency.png",
-    description1: "We believe that safety shouldn't be a promise; it should be a proven fact. While others hide behind self-certification, we open our products to the most rigorous clinical audits.",
-    description2: "Every batch of CareBraids is subjected to 3rd-party laboratory testing that goes beyond industry norms. We screen for over 300 harmful substances to ensure global safety standards aren't just met—they are redefined. This is integrity you can feel in every strand."
+    description1: "We believe safety shouldn’t be a promise. It should be proven. While many products rely on self-certification, CareBraids fibres are independently tested to ensure they meet the highest safety standards.",
+    description2: "Every batch is submitted to third-party laboratory screening for heavy metals and restricted substances. This extra step gives you peace of mind that what touches your hair and scalp has been carefully verified. Because your hair style should not come at the expense of your health."
   }
 ];
 
@@ -67,7 +71,7 @@ export default function BenefitsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              The Science <br /> of Care
+              Why <br />CareBraids?
             </motion.h1>
 
             <motion.p
@@ -76,7 +80,7 @@ export default function BenefitsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Beyond beauty.<br className="hidden md:block" /> Into the fiber.
+              <div className="mb-4">For years, materials used to create syntetic braiding hair have received very little attention, despite their direct contact with your natural hair and scalp.</div> <div className='mb-4'>CareBraids was created to rise the standard. Our strands are carefully tested and thoughtfully designed to support healthier protective styling.</div>
             </motion.p>
           </div>
         </div>
@@ -103,7 +107,7 @@ export default function BenefitsPage() {
         {/* The 4 Feature Sections */}
         <div className="relative z-10 py-16 md:py-24">
           {benefits.map((feature, index) => (
-            <section key={index} className="py-20 md:py-28 px-6 md:px-12 max-w-7xl mx-auto relative group">
+            <section key={index} id={feature.id} className="py-20 md:py-28 px-6 md:px-12 max-w-7xl mx-auto relative group scroll-mt-24 md:scroll-mt-32">
               <div className="grid md:grid-cols-2 gap-16 lg:gap-24 items-center">
 
                 {/* Image Frame Column */}

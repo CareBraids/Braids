@@ -5,47 +5,34 @@ import { Instagram, Music2, Phone, MapPin, Clock, Mail, Youtube, Twitter } from 
 
 const footerLinks = {
   shop: [
-    { name: 'All Styles', href: '/collections/all' },
-    { name: 'Box Braids', href: '/collections/box-braids' },
-    { name: 'Knotless Braids', href: '/collections/knotless-braids' },
-    { name: 'Cornrows', href: '/collections/cornrows' },
-    { name: 'Crochet Braids', href: '/collections/crochet-braids' },
-    { name: 'Accessories', href: '/collections/accessories' },
+    { name: 'Classic', href: '/products/classic' },
+    { name: 'French Curl', href: '/products/french-curl' },
+    { name: 'Pre-Fluffed', href: '/products/pre-fluffed' },
   ],
-  services: [
-    { name: 'Book Appointment', href: '/pages/book' },
-    { name: 'Pricing', href: '/pages/pricing' },
-    { name: 'Custom Requests', href: '/pages/custom-requests' },
-    { name: 'Bridal Styling', href: '/pages/bridal' },
-  ],
+
   about: [
     { name: 'Our Story', href: '/pages/about' },
-    { name: 'Stylists', href: '/pages/stylists' },
-    { name: 'Gallery', href: '/pages/gallery' },
-    { name: 'Reviews', href: '/pages/reviews' },
+    { name: 'Why CareBraids?', href: '/pages/benefits' },
   ],
   help: [
     { name: 'Contact', href: '/pages/contact' },
     { name: 'FAQs', href: '/pages/faq' },
     { name: 'Policies', href: '/policies/privacy' },
     { name: 'Shipping Info', href: '/pages/shipping' },
-  ],
-  hairCare: [
-    { name: 'Prep Guide', href: '/pages/prep-guide' },
-    { name: 'Maintenance Tips', href: '/pages/maintenance' },
-    { name: 'Style Inspiration', href: '/pages/inspiration' },
   ]
 };
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-black py-20 px-6 md:px-12 border-t border-gray-100 font-sans">
+    <footer className="bg-white text-black py-12 md:py-20 px-6 md:px-12 border-t border-gray-100 font-sans">
       <div className="max-w-7xl mx-auto">
 
         {/* Top Section: Business Info & VIP List */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 pb-12 border-b border-[#fdf4ff]">
+        <h4 className="text-3xl font-serif font-semibold tracking-tight bg-gradient-to-r from-[#d946ef] to-[#c121b6] bg-clip-text text-transparent mb-8">CareBraids</h4>
+        <p className="text-[#601438]/80 font-light mb-8">Thoughtfully designed braiding fibres created to support healthier protective styling.</p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 mb-10 md:mb-20 pb-10 md:pb-12 border-b border-[#fdf4ff]">
           <div className="space-y-8">
-            <h4 className="text-2xl font-serif text-[#601438]">Customer Care</h4>
+            <h4 className="text-2xl font-serif text-[#601438]">Contact Us.</h4>
             <div className="space-y-6 text-sm font-light text-gray-600">
 
               <div className="flex items-center gap-4 hover:text-[#601438] transition-colors">
@@ -78,8 +65,8 @@ export default function Footer() {
         </div>
 
         {/* Navigation Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 mb-20">
-          <div className="space-y-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 md:gap-12 mb-10 md:mb-20">
+          <div className="space-y-4 md:space-y-6">
             <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#601438]">Shop</h4>
             <ul className="space-y-3">
               {footerLinks.shop.map((link) => (
@@ -92,20 +79,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-6">
-            <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#601438]">Services</h4>
-            <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-gray-600 hover:text-[#601438] hover:-translate-y-[1px] transition-all inline-block">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
 
-          <div className="space-y-6">
+
+          <div className="space-y-4 md:space-y-6">
             <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#601438]">About</h4>
             <ul className="space-y-3">
               {footerLinks.about.map((link) => (
@@ -118,7 +94,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#601438]">Help</h4>
             <ul className="space-y-3">
               {footerLinks.help.map((link) => (
@@ -131,18 +107,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-6">
-            <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#601438]">Hair Care</h4>
-            <ul className="space-y-3">
-              {footerLinks.hairCare.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-gray-600 hover:text-[#601438] hover:-translate-y-[1px] transition-all inline-block">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
         {/* Bottom Bar */}

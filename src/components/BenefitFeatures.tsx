@@ -5,28 +5,28 @@ import Link from 'next/link';
 
 const features = [
   {
-    id: 1,
+    id: 'low-tox',
     icon: FlaskConical,
     title: 'Low-tox materials',
     details: 'Independently tested and screened for heavy metals and restricted substances.',
-    imageSrc: '/low_tox.png'
+    imageSrc: '/low_tox.jpeg'
   },
   {
-    id: 2,
+    id: 'hydra-shield',
     icon: Droplets,
     title: 'Hydra-Shield',
     details: 'Our fibre is designed with a moisture barrier to help reduce moisture loss from your natural hair during wear.',
     imageSrc: '/hydra-sheild.png'
   },
   {
-    id: 3,
+    id: 'scalp-friendly',
     icon: Heart,
-    title: 'Comfort Lead',
+    title: 'Comfort Led',
     details: 'Lightweight fibre developed for a more comfortable braiding experience.',
-    imageSrc: '/comfort_lead.png'
+    imageSrc: '/comfort_led.jpeg'
   },
   {
-    id: 4,
+    id: 'safety-tested',
     icon: ShieldCheck,
     title: 'Independently safety tested',
     details: 'Screened for heavy metals and restricted substances for peace of mind',
@@ -36,23 +36,26 @@ const features = [
 
 export default function BenefitFeatures() {
   return (
-    <section className="py-24 bg-gradient-to-br from-[#fff1f2] to-[#fdf4ff] relative overflow-hidden">
+    <section className="pt-24 pb-8 md:pb-12 bg-gradient-to-br from-[#fff1f2] to-[#fdf4ff] relative overflow-hidden">
       {/* Background Decorative Blob */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#fae8ff]/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="text-center mb-12 md:mb-20">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#601438] mb-4 md:mb-6 italic leading-tight">
-            Why fibre matters
+            Why CareBraids?
           </h2>
+          <p className="text-[#601438]/70 font-light text-lg md:text-xl tracking-tight max-w-2xl mx-auto mb-4">
+            For years, the materials used to create braiding hair have received very little attention, despite their potential impact on your natural hair.
+          </p>
           <p className="text-[#601438]/70 font-light text-lg md:text-xl tracking-tight max-w-2xl mx-auto">
-            Lab tested fibre designed to support your hair retain moisture and minimise breakage.
+            CareBraids was created to raise the standard. Our fibres are carefully tested and thoughtfully designed to help protect your hair while you wear your favourite styles.
           </p>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 items-stretch">
           {features.map((feature) => (
-            <Link key={feature.id} href="/pages/benefits" className="group block relative border border-gray-100 bg-white transition-all duration-300 hover:shadow-2xl hover:border-[#601438]/20 rounded-none overflow-hidden">
+            <Link key={feature.id} href={`/pages/benefits#${feature.id}`} className="group block relative border border-gray-100 bg-white transition-all duration-300 hover:shadow-2xl hover:border-[#601438]/20 rounded-none overflow-hidden">
               {/* Background Image that fades in on hover */}
               <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 {/* eslint-disable-next-line @next/next/no-img-element */}

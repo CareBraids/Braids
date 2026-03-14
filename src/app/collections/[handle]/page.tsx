@@ -1,18 +1,11 @@
-'use client';
-
-import { use } from 'react';
 import ProductCard from '@/components/ProductCard';
 import { Filter, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
+import { getProducts } from '@/lib/shopify';
 
-const mockProducts = [
-  { handle: 'hydra-shield-faux-locs-14', title: 'Hydra-Shield Faux Locs (14")', price: '£13.99', imageSrc: '/product_1.png' },
-  { handle: 'hydra-shield-pre-stretched-24', title: 'Hydra-Shield Pre-Stretched (24")', price: '£13.99', imageSrc: '/product_2.png' },
-  { handle: 'hydra-shield-butterfly-locs-24', title: 'Hydra-Shield Butterfly Locs (24")', price: '£13.99', imageSrc: '/product_3.png' },
-];
-
-export default function CollectionPage({ params }: { params: Promise<{ handle: string }> }) {
-  const { handle } = use(params);
+export default async function CollectionPage({ params }: { params: Promise<{ handle: string }> }) {
+  const { handle } = await params;
+  const products = await getProducts(50);
   const title = handle.replace(/-/g, ' ').toUpperCase();
 
   return (
@@ -47,14 +40,14 @@ export default function CollectionPage({ params }: { params: Promise<{ handle: s
             </button>
           </div>
           <p className="text-[10px] font-bold tracking-widest uppercase text-[#601438]/60">
-            {mockProducts.length} PRODUCTS
+            {products.length} PRODUCTS
           </p>
         </div>
 
         {/* Products Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 sm:gap-x-10 gap-y-10 sm:gap-y-16">
-          {mockProducts.map((product) => (
-            <ProductCard key={product.handle} {...product} />
+          {products.map((product: any) => (
+            <ProductCard key={product.id || product.handle} {...product} />
           ))}
         </div>
       </div>

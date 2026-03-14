@@ -1,6 +1,14 @@
 /**
  * Utility functions to interact with the Shopify Storefront API
  */
+import dns from 'node:dns';
+
+// Fix for Node.js 18+ undici fetch timeouts on environments with broken IPv6
+try {
+  dns.setDefaultResultOrder('ipv4first');
+} catch (e) {
+  // Ignore in environments where this isn't supported (e.g. Edge runtime)
+}
 
 const domain = process.env.SHOPIFY_STORE_DOMAIN;
 const storefrontAccessToken = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
@@ -47,14 +55,14 @@ async function shopifyFetch({
     const { data, errors } = await response.json();
 
     if (errors) {
-      console.error('Shopify GraphQL Errors:', JSON.stringify(errors, null, 2));
-      throw new Error('Failed to fetch from Shopify API');
+      console.warn('Shopify GraphQL Errors:', JSON.stringify(errors, null, 2));
+      return null;
     }
 
     return data;
   } catch (error) {
-    console.error('Error fetching from Shopify:', error);
-    throw error;
+    console.warn('Warning: Error fetching from Shopify:', error);
+    return null;
   }
 }
 
@@ -91,7 +99,11 @@ export async function getProducts(limit = 10) {
     }
   `;
 
-  const data = await shopifyFetch({ query, variables: { first: limit } });
+  const data = await shopifyFetch({ 
+    query, 
+    variables: { first: limit },
+    revalidate: 3600 // Cache for 1 hour to prevent slow layout loads
+  });
 
   if (!data?.products?.edges) {
     return [];
@@ -126,6 +138,71 @@ export async function getProducts(limit = 10) {
 }
 
 /**
+ * Fetch a list of products matching a search query.
+ */
+export async function searchProducts(searchQuery: string, limit = 20) {
+  const query = `
+    query searchProducts($query: String!, $first: Int!) {
+      products(first: $first, query: $query) {
+        edges {
+          node {
+            id
+            title
+            handle
+            description
+            priceRange {
+              minVariantPrice {
+                amount
+                currencyCode
+              }
+            }
+            images(first: 1) {
+              edges {
+                node {
+                  url
+                  altText
+               }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const data = await shopifyFetch({ query, variables: { query: searchQuery, first: limit } });
+
+  if (!data?.products?.edges) {
+    return [];
+  }
+
+  return data.products.edges.map(({ node }: any) => {
+    const priceCurrency = node.priceRange.minVariantPrice.currencyCode;
+    const priceAmount = parseFloat(node.priceRange.minVariantPrice.amount);
+
+    let formattedPrice = '';
+    try {
+      formattedPrice = new Intl.NumberFormat('en-GB', {
+        style: 'currency',
+        currency: priceCurrency,
+      }).format(priceAmount);
+    } catch (e) {
+      formattedPrice = `${priceCurrency} ${priceAmount}`;
+    }
+
+    return {
+      id: node.id,
+      title: node.title,
+      handle: node.handle,
+      description: node.description,
+      price: formattedPrice,
+      imageSrc: node.images.edges[0]?.node.url || '/product_1.png',
+      imageAlt: node.images.edges[0]?.node.altText || node.title,
+    };
+  });
+}
+
+/**
  * Fetch a single product by its handle (slug).
  */
 export async function getProductByHandle(handle: string) {
@@ -136,6 +213,10 @@ export async function getProductByHandle(handle: string) {
         title
         handle
         descriptionHtml
+        options {
+          name
+          values
+        }
         priceRange {
           minVariantPrice {
             amount
@@ -150,15 +231,23 @@ export async function getProductByHandle(handle: string) {
             }
           }
         }
-        variants(first: 10) {
+        variants(first: 100) {
           edges {
             node {
               id
               title
               availableForSale
+              image {
+                url
+                altText
+              }
               price {
                 amount
                 currencyCode
+              }
+              selectedOptions {
+                name
+                value
               }
             }
           }
