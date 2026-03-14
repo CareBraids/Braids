@@ -32,7 +32,7 @@ export default function Hero() {
         <div className="max-w-2xl text-left">
           {/* Animated Main Heading with Serif Font */}
           <motion.h1
-            className="text-[3.5rem] md:text-6xl lg:text-[5.5rem] font-medium tracking-tight mb-6 font-serif text-[#601438] leading-[1.05]"
+            className="text-[2.5rem] sm:text-[3.5rem] md:text-6xl lg:text-[5.5rem] font-medium tracking-tight mb-6 font-serif text-[#601438] leading-[1.1] sm:leading-[1.05]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
