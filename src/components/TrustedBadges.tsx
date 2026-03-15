@@ -6,12 +6,12 @@ export default function TrustedBadges() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
 
         {/* Section Header */}
-        <div className="flex items-center justify-center gap-4 mb-6 md:mb-8">
-          <div className="h-[1px] w-12 md:w-24 bg-gradient-to-r from-transparent to-[#601438]/30"></div>
-          <h2 className="text-sm md:text-3xl font-serif text-[#601438]">
+        <div className="flex items-center justify-center gap-2 md:gap-4 mb-6 md:mb-8">
+          <div className="h-[1px] w-4 md:w-24 bg-gradient-to-r from-transparent to-[#601438]/30"></div>
+          <h2 className="text-[11px] sm:text-sm md:text-3xl font-serif text-[#601438] whitespace-nowrap">
             Raising the Standard in Braiding Hair
           </h2>
-          <div className="h-[1px] w-12 md:w-24 bg-gradient-to-l from-transparent to-[#601438]/30"></div>
+          <div className="h-[1px] w-4 md:w-24 bg-gradient-to-l from-transparent to-[#601438]/30"></div>
         </div>
 
         {/* Badges Display */}

@@ -103,7 +103,7 @@ export default function BenefitsPage() {
             className="text-center md:text-left mb-16 max-w-4xl mx-auto md:mx-0"
           >
             <h2 className="text-[2.2rem] md:text-5xl lg:text-[3.5rem] font-serif font-medium text-[#601438] leading-tight mb-6">
-              Why Traditional Braiding Hair<br className="hidden md:block" /> Can <span className="text-[#c121b6]">Damage</span> Natural Hair
+              Why Traditional Braiding Hair<br className="hidden md:block" /> <span className="text-[#c121b6]">Damages</span> Natural Hair
             </h2>
             <p className="text-lg md:text-xl font-light text-[#5a2a3f] leading-relaxed max-w-3xl border-l-2 border-[#fdf4ff] pl-6 py-2">
               For years, the fibres used in braiding hair have received very little scrutiny. Many synthetic fibres are coated with chemicals or contain residues that can irritate the scalp and strip moisture from natural hair.
@@ -119,7 +119,7 @@ export default function BenefitsPage() {
             className="bg-white rounded-3xl md:rounded-[2.5rem] shadow-[0_20px_50px_-12px_rgba(96,20,56,0.1)] border border-[#fdf4ff] overflow-hidden"
           >
             {/* Split Images Header */}
-            <div className="flex flex-row relative">
+            <div className="flex flex-row relative divide-x-[4px] sm:divide-x-[8px] divide-white bg-white">
               {/* VS Badge */}
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full bg-white shadow-xl flex items-center justify-center border-2 sm:border-4 border-[#fffdfc]">
                 <span className="font-serif font-bold text-[#601438] text-sm md:text-xl tracking-wider">VS</span>
@@ -149,8 +149,8 @@ export default function BenefitsPage() {
             </div>
 
             {/* Split Content Grid */}
-            <div className="flex flex-row divide-x divide-[#fdf4ff]">
-
+            <div className="flex flex-row divide-x-[4px] sm:divide-x-[8px] divide-white bg-white">
+              
               {/* Traditional Side (Left) */}
               <div className="w-1/2 bg-gradient-to-b from-[#fff5f5]/80 to-white pt-6 pb-8 px-3 sm:px-6 md:pt-10 md:pb-12 md:px-12">
                 <div className="flex flex-col xl:flex-row items-center justify-center gap-2 md:gap-3 mb-6 md:mb-10 text-center">
