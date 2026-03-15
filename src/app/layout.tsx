@@ -10,8 +10,31 @@ import { getCustomerDetails, getProducts } from '@/lib/shopify';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: 'CareBraids | Premium Braiding Hair',
-  description: 'Elevate your style with premium braiding hair extensions.',
+  metadataBase: new URL('https://www.carebraids.com'),
+  title: {
+    default: 'CareBraids | Raising the Standard in Braiding Hair',
+    template: '%s | CareBraids',
+  },
+  description: 'CareBraids exists to create braiding fibres that support both beautiful styles and healthier hair. Engineered for protective styling, independently safety tested, and designed without compromise.',
+  openGraph: {
+    title: 'CareBraids | Premium Protective Braiding Hair',
+    description: 'CareBraids exists to create braiding fibres that support both beautiful styles and healthier hair. Elevate your protective styling.',
+    url: 'https://www.carebraids.com',
+    siteName: 'CareBraids',
+    locale: 'en_US',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 import { CartProvider } from '@/components/CartProvider';
