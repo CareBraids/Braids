@@ -74,14 +74,14 @@ export default function BenefitsPage() {
               Why <br />CareBraids?
             </motion.h1>
 
-            <motion.p
+            <motion.div
               className="max-w-xl text-lg md:text-xl font-normal tracking-wide mb-10 text-[#5a2a3f]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div className="mb-4">For years, materials used to create syntetic braiding hair have received very little attention, despite their direct contact with your natural hair and scalp.</div> <div className='mb-4'>CareBraids was created to raise the standard. Our strands are carefully tested and thoughtfully designed to support healthier protective styling.</div>
-            </motion.p>
+            </motion.div>
           </div>
         </div>
 
@@ -128,7 +128,7 @@ export default function BenefitsPage() {
               {/* Traditional Image */}
               <div className="w-1/2 h-32 sm:h-48 md:h-64 relative bg-[#fff5f5]">
                 <Image
-                  src="/traditional_braids.png"
+                  src="/traditional_braids.jpeg"
                   alt="Traditional Braiding Hair"
                   fill
                   className="object-cover opacity-90"
@@ -139,7 +139,7 @@ export default function BenefitsPage() {
               {/* CareBraids Image */}
               <div className="w-1/2 h-32 sm:h-48 md:h-64 relative bg-[#fdf4ff]">
                 <Image
-                  src="/carebraids.png"
+                  src="/carebraids.jpeg"
                   alt="CareBraids Protected Styling"
                   fill
                   className="object-cover opacity-95"
@@ -150,12 +150,12 @@ export default function BenefitsPage() {
 
             {/* Split Content Grid */}
             <div className="flex flex-row divide-x divide-[#fdf4ff]">
-              
+
               {/* Traditional Side (Left) */}
               <div className="w-1/2 bg-gradient-to-b from-[#fff5f5]/80 to-white pt-6 pb-8 px-3 sm:px-6 md:pt-10 md:pb-12 md:px-12">
                 <div className="flex flex-col xl:flex-row items-center justify-center gap-2 md:gap-3 mb-6 md:mb-10 text-center">
                   <span className="w-6 h-6 md:w-8 md:h-8 rounded-md bg-[#ffe4e6] flex items-center justify-center text-[#e11d48] font-bold text-sm md:text-lg">!</span>
-                  <h3 className="text-sm sm:text-lg md:text-2xl font-serif font-medium text-[#881337]">Traditional<br className="hidden xl:block"/> Braiding Hair</h3>
+                  <h3 className="text-sm sm:text-lg md:text-2xl font-serif font-medium text-[#881337]">Traditional<br className="hidden xl:block" /> Braiding Hair</h3>
                 </div>
                 <ul className="space-y-4 md:space-y-6">
                   {[
@@ -177,7 +177,7 @@ export default function BenefitsPage() {
               {/* CareBraids Side (Right) */}
               <div className="w-1/2 bg-gradient-to-b from-[#fdf4ff]/80 to-white pt-6 pb-8 px-3 sm:px-6 md:pt-10 md:pb-12 md:px-12 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-24 h-24 md:w-40 md:h-40 bg-gradient-to-bl from-[#fae8ff]/50 to-transparent rounded-bl-full pointer-events-none" />
-                
+
                 <div className="flex flex-col xl:flex-row items-center justify-center gap-2 md:gap-3 mb-6 md:mb-10 text-center relative z-10">
                   <div className="w-6 h-6 md:w-8 md:h-8 rounded-md bg-white border border-[#fae8ff] shadow-sm flex items-center justify-center text-[#601438]">
                     <ShieldCheck className="w-4 h-4 md:w-5 md:h-5" />
@@ -217,7 +217,7 @@ export default function BenefitsPage() {
             <p className="text-[#5a2a3f] font-medium text-lg md:text-xl leading-relaxed mb-10 px-4">
               CareBraids was created to raise the standard in braiding hair by combining safer fibres with professional laboratory testing.
             </p>
-            
+
             <div className="inline-flex items-center justify-center px-8 md:px-12 py-5 bg-[#601438] text-white font-medium text-sm md:text-base tracking-widest uppercase transition-all shadow-[0_8px_30px_rgb(96,20,56,0.3)] hover:shadow-[0_8px_30px_rgb(96,20,56,0.5)] cursor-default select-none group">
               Continue reading below
               <svg className="w-5 h-5 ml-4 rotate-90 transform transition-transform duration-300 group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
