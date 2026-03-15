@@ -48,8 +48,11 @@ export default function BenefitFeatures() {
           <p className="text-[#601438]/70 font-light text-lg md:text-xl tracking-tight max-w-2xl mx-auto mb-4">
             For years, the materials used to create braiding hair have received very little attention, despite their potential impact on your natural hair.
           </p>
-          <p className="text-[#601438]/70 font-light text-lg md:text-xl tracking-tight max-w-2xl mx-auto">
+          <p className="text-[#601438]/70 font-light text-lg md:text-xl tracking-tight max-w-2xl mx-auto mb-4">
             CareBraids was created to raise the standard. Our fibres are carefully tested and thoughtfully designed to help protect your hair while you wear your favourite styles.
+          </p>
+          <p className="text-[#601438]/70 font-light text-lg md:text-xl tracking-tight max-w-2xl mx-auto">
+            We believe protective styling should never come at the expense of hair health. CareBraids exists to create braiding fibres that support both beautiful styles and healthier hair.
           </p>
         </div>
 
