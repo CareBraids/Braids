@@ -41,20 +41,6 @@ export default function BenefitFeatures() {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#fae8ff]/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-[#601438] mb-4 md:mb-6 leading-tight">
-            Why Many Traditional Braiding<br className="hidden md:block" /> Fibres Can Damage Natural Hair
-          </h2>
-          <p className="text-[#601438]/70 font-light text-lg md:text-xl tracking-tight max-w-3xl mx-auto mb-4">
-            Many synthetic braiding fibres are coated with chemical finishes or residues that can irritate the scalp and strip moisture from natural hair. These fibres often sit close to the scalp for weeks during protective styling, yet the materials used to create them have historically received little scrutiny.
-          </p>
-          <p className="text-[#601438]/70 font-light text-lg md:text-xl tracking-tight max-w-3xl mx-auto">
-            This is why CareBraids was created.
-          </p>
-        </div>
-
-        <div className="w-16 h-[1px] bg-[#601438]/20 mx-auto my-12" />
-
         <div className="text-center mb-16 md:mb-20">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#601438] mb-4 md:mb-6 italic leading-tight">
             Why CareBraids?
