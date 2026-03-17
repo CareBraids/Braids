@@ -59,7 +59,7 @@ export default function BenefitsPage() {
             />
           </picture>
           {/* Refined Professional Floral Overlay Matching Mockup */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#fae8ff]/90 via-white/40 to-transparent w-[80%] md:w-[60%]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#fae8ff]/95 via-white/80 to-transparent md:from-[#fae8ff]/90 md:via-white/40 md:to-transparent w-[95%] md:w-[60%]" />
           <div className="absolute bottom-0 w-full h-[35%] bg-gradient-to-t from-[#fff5f7] via-[#fff5f7]/80 to-transparent" />
         </div>
 
@@ -76,7 +76,7 @@ export default function BenefitsPage() {
             </motion.h1>
 
             <motion.div
-              className="max-w-xl text-lg md:text-xl font-normal tracking-wide mb-10 text-[#5a2a3f]"
+              className="max-w-xl text-lg md:text-xl font-medium md:font-normal tracking-wide mb-10 text-[#3a0a1f] md:text-[#5a2a3f] drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] md:drop-shadow-none"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
