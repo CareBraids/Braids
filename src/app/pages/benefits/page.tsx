@@ -45,7 +45,7 @@ export default function BenefitsPage() {
   return (
     <main className="bg-white min-h-screen">
       {/* Hero Section - Professional Match to Home Hero */}
-      <section className="relative h-screen w-full overflow-hidden bg-[#fdf4ff] z-20">
+      <section className="relative h-[80vh] md:h-[85vh] lg:h-[90vh] w-full overflow-hidden bg-[#fdf4ff] z-20">
         {/* Background Image - Optimized for Mobile */}
         <div className="absolute inset-0">
           <picture>
@@ -101,7 +101,7 @@ export default function BenefitsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center md:text-left mb-8 max-w-4xl mx-auto md:mx-0"
+            className="text-center md:text-left mb-4 max-w-4xl mx-auto md:mx-0"
           >
             <h2 className="text-[2.2rem] md:text-5xl lg:text-[3.5rem] font-serif font-medium text-[#601438] leading-tight mb-6">
               Why Traditional Braiding Hair<br className="hidden md:block" /> <span className="text-[#c121b6]">Damages</span> Natural Hair
