@@ -11,8 +11,8 @@ const benefits = [
     title: "Low-tox materials",
     icon: FlaskConical,
     imageSrc: "/low_tox.jpeg",
-    description1: "For years, the materials used to create synthetic braiding hair have largely gone overlooked. Yet the fibres used in protective styles sit close to the scalp for weeks at a time. CareBraids was created to bring greater transparency and higher standards to braiding hair.",
-    description2: "Our fibres are independently screened for heavy metals and restricted substances, helping to support a cleaner and more comfortable braiding experience. Because what touches your hair should meet a higher standard."
+    description1: "The materials used to create synthetic braiding hair have often received little scrutiny. Yet the fibres used in protective styles sit close to the scalp for weeks at a time. CareBraids was created to bring greater transparency and higher standards to braiding hair.",
+    description2: "Many braiding fibres contain harsh coatings that can irritate the scalp. CareBraids fibres are independently screened for heavy metals and restricted substances, supporting a cleaner and more comfortable braiding experience. Because what touches your hair should meet a higher standard."
   },
   {
     id: "hydra-shield",
@@ -80,7 +80,7 @@ export default function BenefitsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="mb-4">For years, materials used to create syntetic braiding hair have received very little attention, despite their direct contact with your natural hair and scalp.</div> <div className='mb-4'>CareBraids was created to raise the standard. Our strands are carefully tested and thoughtfully designed to support healthier protective styling.</div>
+              <div className="mb-4">Many traditional braiding fibres are produced using chemical finishes and harsh alkaline coatings designed to improve handling during manufacturing. These coatings can sometimes irritate the scalp or contribute to dryness during long-term wear.</div> <div className='mb-4'>Most synthetic braiding hair is designed primarily for cost and appearance. CareBraids was created to prioritise scalp comfort, fibre safety and long-term hair health. Our fibres are carefully tested and thoughtfully designed to help protect your hair while you wear your favourite styles.</div>
             </motion.div>
           </div>
         </div>
@@ -106,7 +106,7 @@ export default function BenefitsPage() {
               Why Traditional Braiding Hair<br className="hidden md:block" /> <span className="text-[#c121b6]">Damages</span> Natural Hair
             </h2>
             <p className="text-lg md:text-xl font-light text-[#5a2a3f] leading-relaxed max-w-3xl border-l-2 border-[#fdf4ff] pl-6 py-2">
-              For years, the fibres used in braiding hair have received very little scrutiny. Many synthetic fibres are coated with chemicals or contain residues that can irritate the scalp and strip moisture from natural hair.
+              Many synthetic braiding fibres are coated with chemical finishes or residues that can irritate the scalp and strip moisture from natural hair. These fibres often sit close to the scalp for weeks during protective styling, yet the materials used to create them have historically received little scrutiny.
             </p>
           </motion.div>
 
@@ -150,7 +150,7 @@ export default function BenefitsPage() {
 
             {/* Split Content Grid */}
             <div className="flex flex-row divide-x-[4px] sm:divide-x-[8px] divide-white bg-white">
-              
+
               {/* Traditional Side (Left) */}
               <div className="w-1/2 bg-gradient-to-b from-[#fff5f5]/80 to-white pt-6 pb-8 px-3 sm:px-6 md:pt-10 md:pb-12 md:px-12">
                 <div className="flex flex-col xl:flex-row items-center justify-center gap-2 md:gap-3 mb-6 md:mb-10 text-center">

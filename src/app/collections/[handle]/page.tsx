@@ -7,7 +7,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ han
   const { handle } = await params;
   const products = await getProducts(50);
   const baseTitle = handle.replace(/-/g, ' ').toUpperCase();
-  const title = baseTitle === 'ALL' ? 'ALL PRODUCTS' : baseTitle;
+  const title = baseTitle === 'ALL' ? 'PRODUCTS' : baseTitle;
 
   return (
     <div className="relative pt-40 pb-24 px-6 md:px-12 min-h-screen">

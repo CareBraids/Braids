@@ -22,16 +22,16 @@ export default function AboutPage() {
                 Braiding hair has been part of protective styling for decades. Yet the materials used to create synthetic braiding fibres have rarely been questioned.
               </p>
               <p>
-                CareBraids was created after recognizing that the fibres used in braiding hair sit close to the scalp for weeks at a time, yet very little attention had been given to their material quality.
+                CareBraids was created after recognising that the fibres used in braiding hair sit close to the scalp for weeks at a time, yet very little attention had been given to their material quality.
               </p>
               <p>
-                Our team of scientists and fiber experts set out to change this, developing a safer, low-tox alternative that's rigorously screened and designed to be scalp-friendly.
+                We set out to change this by developing a safer, low-tox alternative that is rigorously screened and designed to be scalp-friendly.
               </p>
               <p>
-                Our mission is simple: to bring greater transparency, care, and higher standards to braiding hair.
+                Our mission is simple: to bring greater transparency, care and higher standards to braiding hair.
               </p>
               <p className="italic font-medium">
-                This is only the beginning of a new standard in braiding hair.
+                This is only the beginning of a new standard for braiding hair.
               </p>
             </div>
 
