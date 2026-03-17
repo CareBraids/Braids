@@ -59,7 +59,7 @@ export default function BenefitsPage() {
             />
           </picture>
           {/* Refined Professional Floral Overlay Matching Mockup */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#fae8ff]/95 via-white/80 to-transparent md:from-[#fae8ff]/90 md:via-white/40 md:to-transparent w-[95%] md:w-[60%]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#fae8ff]/95 via-white/20 to-transparent md:from-[#fae8ff]/90 md:via-white/40 md:to-transparent w-[95%] md:w-[60%]" />
           <div className="absolute bottom-0 w-full h-[35%] bg-gradient-to-t from-[#fff5f7] via-[#fff5f7]/80 to-transparent" />
         </div>
 
@@ -67,7 +67,7 @@ export default function BenefitsPage() {
         <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-center px-6 md:px-12 pt-20">
           <div className="max-w-2xl text-left">
             <motion.h1
-              className="text-[3rem] sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-tight mb-6 font-serif text-[#601438] leading-[1.05]"
+              className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight mb-6 font-serif text-[#601438] leading-[1.05]"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -81,7 +81,7 @@ export default function BenefitsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="mb-4">Many braiding fibres use harsh coatings that can irritate the scalp and dry out natural hair.</div> <div className='mb-4'>CareBraids is different. Thoughtfully designed for comfort, safety and braids that are kinder to your natural hair.</div>
+              <div className="mb-4">Many braiding fibres use harsh coatings that can irritate the scalp and dry out natural hair.</div> <div className='mb-4'>CareBraids is different. </div><div className='mb-4'>Thoughtfully designed for comfort, safety and braids that are kinder to your natural hair.</div>
             </motion.div>
           </div>
         </div>
