@@ -67,7 +67,7 @@ export default function BenefitsPage() {
         <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-center px-6 md:px-12 pt-20">
           <div className="max-w-2xl text-left">
             <motion.h1
-              className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight mb-6 font-serif text-[#601438] leading-[1.05]"
+              className="text-[3.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight mb-6 font-serif text-[#601438] leading-[1.05]"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
