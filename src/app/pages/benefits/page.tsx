@@ -101,13 +101,13 @@ export default function BenefitsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center md:text-left mb-16 max-w-4xl mx-auto md:mx-0"
+            className="text-center md:text-left mb-8 max-w-4xl mx-auto md:mx-0"
           >
             <h2 className="text-[2.2rem] md:text-5xl lg:text-[3.5rem] font-serif font-medium text-[#601438] leading-tight mb-6">
               Why Traditional Braiding Hair<br className="hidden md:block" /> <span className="text-[#c121b6]">Damages</span> Natural Hair
             </h2>
             <p className="text-lg md:text-xl font-light text-[#5a2a3f] leading-relaxed max-w-3xl border-l-2 border-[#fdf4ff] pl-6 py-2">
-              Many synthetic braiding fibres are coated with chemical finishes or residues that can irritate the scalp and strip moisture from natural hair. These fibres often sit close to the scalp for weeks during protective styling, yet the materials used to create them have historically received little scrutiny.
+              Many synthetic braiding fibres are coated with chemical finishes or residues that can irritate the scalp and strip moisture from natural hair.
             </p>
           </motion.div>
 
