@@ -12,7 +12,8 @@ const benefits = [
     icon: FlaskConical,
     imageSrc: "/low_tox.jpeg",
     description1: "The materials used to create synthetic braiding hair have often received little scrutiny. Yet the fibres used in protective styles sit close to the scalp for weeks at a time. CareBraids was created to bring greater transparency and higher standards to braiding hair.",
-    description2: "Many braiding fibres contain harsh coatings that can irritate the scalp. CareBraids fibres are independently screened for heavy metals and restricted substances, supporting a cleaner and more comfortable braiding experience. Because what touches your hair should meet a higher standard."
+    description2: "Many braiding fibres contain harsh coatings that can irritate the scalp. CareBraids fibres are independently screened for heavy metals and restricted substances, supporting a cleaner and more comfortable braiding experience.",
+    description3: "Because what touches your hair should meet a higher standard."
   },
   {
     id: "hydra-shield",
@@ -299,6 +300,9 @@ export default function BenefitsPage() {
                   <div className="space-y-6 text-gray-700 leading-relaxed text-[1.1rem] md:text-lg lg:text-xl font-light tracking-wide bg-white/60 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-white/50 md:border-none">
                     <p className="opacity-90">{feature.description1}</p>
                     <p className="text-gray-900 font-medium leading-relaxed">{feature.description2}</p>
+                    {feature.description3 && (
+                      <p className="text-gray-900 font-medium leading-relaxed">{feature.description3}</p>
+                    )}
                   </div>
                 </motion.div>
 
