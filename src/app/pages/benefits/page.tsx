@@ -67,7 +67,7 @@ export default function BenefitsPage() {
         <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-center px-6 md:px-12 pt-20">
           <div className="max-w-2xl text-left">
             <motion.h1
-              className="text-[3.5rem] md:text-6xl lg:text-[5.5rem] font-medium tracking-tight mb-6 font-serif text-[#601438] leading-[1.05]"
+              className="text-[3rem] sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-tight mb-6 font-serif text-[#601438] leading-[1.05]"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -103,7 +103,7 @@ export default function BenefitsPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center md:text-left mb-4 max-w-4xl mx-auto md:mx-0"
           >
-            <h2 className="text-[2.2rem] md:text-5xl lg:text-[3.5rem] font-serif font-medium text-[#601438] leading-tight mb-6">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-medium text-[#601438] leading-tight mb-6">
               Why Traditional Braiding Hair<br className="hidden md:block" /> <span className="text-[#c121b6]">Damages</span> Natural Hair
             </h2>
             <p className="text-lg md:text-xl font-light text-[#5a2a3f] leading-relaxed max-w-3xl border-l-2 border-[#fdf4ff] pl-6 py-2">
