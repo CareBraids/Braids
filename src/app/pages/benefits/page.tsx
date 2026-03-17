@@ -45,15 +45,15 @@ export default function BenefitsPage() {
   return (
     <main className="bg-white min-h-screen">
       {/* Hero Section - Professional Match to Home Hero */}
-      <section className="relative h-[80vh] md:h-[85vh] lg:h-[90vh] w-full overflow-hidden bg-[#fdf4ff] z-20">
+      <section className="relative h-screen w-full overflow-hidden bg-[#fdf4ff] z-20">
         {/* Background Image - Optimized for Mobile */}
         <div className="absolute inset-0">
           <picture>
-            <source media="(max-width: 767px)" srcSet="/hero_image_mobile.png" />
-            <source media="(min-width: 768px)" srcSet="/hero_image_1.png" />
+            <source media="(max-width: 767px)" srcSet="/hero_image_phone.jpeg" />
+            <source media="(min-width: 768px)" srcSet="/benefit_image.jpeg" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/hero_image_1.png"
+              src="/benefit_image.jpeg"
               alt="The Science of Care"
               className="w-full h-full object-cover object-center md:object-[right_top] absolute inset-0"
             />
