@@ -45,7 +45,7 @@ export default function BenefitsPage() {
   return (
     <main className="bg-white min-h-screen">
       {/* Hero Section - Professional Match to Home Hero */}
-      <section className="relative h-[80vh] md:h-[85vh] lg:h-[90vh] min-h-[600px] w-full overflow-hidden bg-[#fdf4ff] z-20">
+      <section className="relative h-[80vh] md:h-[85vh] lg:h-[100svh] min-h-[600px] w-full overflow-hidden bg-[#fdf4ff] z-20">
         {/* Background Image - Clean and sharp, no blurry overlays */}
         <div className="absolute inset-0">
           <picture>
