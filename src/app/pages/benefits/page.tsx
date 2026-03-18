@@ -45,27 +45,24 @@ export default function BenefitsPage() {
   return (
     <main className="bg-white min-h-screen">
       {/* Hero Section - Professional Match to Home Hero */}
-      <section className="relative h-[100svh] min-h-[600px] w-full overflow-hidden bg-[#fdf4ff] z-20">
-        {/* Background Image - Optimized for Mobile */}
+      <section className="relative h-[80vh] md:h-[85vh] lg:h-[90vh] min-h-[600px] w-full overflow-hidden bg-[#fdf4ff] z-20">
+        {/* Background Image - Clean and sharp, no blurry overlays */}
         <div className="absolute inset-0">
           <picture>
             <source media="(max-width: 767px)" srcSet="/image_benefits.jpeg" />
-            <source media="(min-width: 768px)" srcSet="/image_benefits.jpeg" />
+            <source media="(min-width: 768px)" srcSet="/benefit_image.jpeg" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/image_benefits.jpeg"
+              src="/benefit_image.jpeg"
               alt="The Science of Care"
-              className="w-full h-full object-cover object-[80%_top] sm:object-right md:object-[right_top] absolute inset-0"
+              className="w-full h-full object-cover object-[85%_top] md:object-[right_top] absolute inset-0"
             />
           </picture>
-          {/* Refined Professional Floral Overlay Matching Mockup */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#fae8ff] via-[#fae8ff]/95 to-transparent md:from-[#fae8ff]/90 md:via-white/40 md:to-transparent w-[90%] md:w-[60%]" />
-          <div className="absolute bottom-0 w-full h-[25%] bg-gradient-to-t from-[#fff5f7] via-[#fff5f7]/60 to-transparent" />
         </div>
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-center px-6 md:px-12 pt-20">
-          <div className="max-w-2xl text-left">
+          <div className="max-w-[70%] sm:max-w-md md:max-w-2xl text-left">
             <motion.h1
               className="text-[3.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight mb-6 font-serif text-[#601438] leading-[1.05]"
               initial={{ opacity: 0, y: 30 }}
@@ -76,7 +73,7 @@ export default function BenefitsPage() {
             </motion.h1>
 
             <motion.div
-              className="max-w-xl text-[1.05rem] md:text-xl font-medium md:font-normal tracking-wide leading-relaxed mb-10 text-[#5a2a3f]"
+              className="max-w-full sm:max-w-md md:max-w-xl text-[1.1rem] md:text-xl font-bold md:font-normal tracking-wide leading-relaxed mb-10 text-[#4a0e2d] md:text-[#5a2a3f] drop-shadow-[0_0_12px_rgba(255,255,255,1)] md:drop-shadow-none"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
