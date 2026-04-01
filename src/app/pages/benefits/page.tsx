@@ -55,30 +55,38 @@ export default function BenefitsPage() {
             <img
               src="/benefit_image.jpeg"
               alt="The Science of Care"
-              className="w-full h-full object-cover object-[85%_top] md:object-[right_top] absolute inset-0"
+              className="w-full h-full object-cover object-[center_top] md:object-[right_top] absolute inset-0"
             />
           </picture>
+          {/* Mobile Overlay: Smooth gradient from the bottom, softened at the top to show more model face */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#fae8ff]/95 via-[#fae8ff]/30 to-transparent h-full md:hidden" />
+
+          {/* Desktop Overlay: Adds readability for left-aligned text on larger screens */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#fae8ff]/90 via-white/40 to-transparent w-[80%] md:w-[60%] hidden md:block" />
+
+          <div className="absolute bottom-0 w-full h-[35%] md:h-[35%] bg-gradient-to-t from-[#fff5f7] via-[#fff5f7]/80 to-transparent" />
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-center px-6 md:px-12 pt-20">
-          <div className="max-w-[70%] sm:max-w-md md:max-w-2xl text-left">
+        {/* Hero Content text mapped exactly to mockup structure and centered on mobile */}
+        <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-end md:justify-center px-6 md:px-12 pb-48 md:pb-0 pt-20">
+          <div className="w-full text-left md:max-w-2xl mx-0">
             <motion.h1
-              className="text-[3.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight mb-6 font-serif text-[#601438] leading-[1.05]"
+              className="text-[2.4rem] sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight mb-4 md:mb-6 font-serif text-[#fa3ac2] md:text-[#fa3ac2] leading-[1.1] md:leading-[1.05]"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              Why <br />CareBraids?
+              What you choose<br className="md:hidden" /> for your hair matters.
             </motion.h1>
 
             <motion.div
-              className="max-w-full sm:max-w-md md:max-w-xl text-[1.1rem] md:text-xl font-bold md:font-normal tracking-wide leading-relaxed mb-10 text-[#4a0e2d] md:text-[#5a2a3f] drop-shadow-[0_0_12px_rgba(255,255,255,1)] md:drop-shadow-none"
+              className="w-full sm:max-w-md md:max-w-xl mx-0 text-lg md:text-xl font-medium md:font-normal tracking-wide leading-relaxed text-[#601438] md:text-[#fa3ac2] drop-shadow-sm md:drop-shadow-none"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="mb-4">Many braiding fibres use harsh coatings that can irritate the scalp and dry out natural hair.</div> <div className='mb-4'>CareBraids is different. </div><div className='mb-4'>Thoughtfully designed for comfort, safety and braids that are kinder to your natural hair.</div>
+              <div className="mb-2 md:mb-4 text-[1.25rem] md:text-2xl font-bold font-serif text-[#601438]">CareBraids is different.</div>
+              <div className="opacity-90 leading-snug">Thoughtfully designed fibres,<br className="inline md:hidden" /> made to care for your hair.</div>
             </motion.div>
           </div>
         </div>
