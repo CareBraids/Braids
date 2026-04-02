@@ -1,7 +1,26 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+"use client";
+
+import { useActionState, useEffect, useRef } from "react";
+import { Mail, MapPin, Phone, CheckCircle2, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { sendContactEmail } from "./actions";
+
+const initialState = {
+  success: false,
+  message: ""
+};
 
 export default function ContactPage() {
+  const [state, formAction, isPending] = useActionState(sendContactEmail, initialState);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // Clear form on success
+  useEffect(() => {
+    if (state.success && formRef.current) {
+      formRef.current.reset();
+    }
+  }, [state.success]);
+
   return (
     <div className="relative min-h-screen pt-32 pb-24 px-6 md:px-12">
       {/* Global Blurred Background Layer */}
@@ -87,31 +106,87 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white/85 backdrop-blur-xl p-8 md:p-12 shadow-2xl border border-[#601438]/10 rounded-none">
-            <h2 className="text-3xl font-serif text-[#601438] mb-8">Send a Message</h2>
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#601438]/70">Name</label>
-                  <input type="text" className="w-full bg-white/60 border border-[#601438]/10 p-4 focus:outline-none focus:border-[#601438] focus:bg-white transition-all text-[#601438]" />
+          <div className="bg-white/85 backdrop-blur-xl p-8 md:p-12 shadow-2xl border border-[#601438]/10 rounded-none min-h-[500px] flex flex-col">
+            {state.success ? (
+              <div className="flex-1 flex flex-col items-center justify-center text-center space-y-6 py-12">
+                <div className="w-20 h-20 bg-[#601438]/10 rounded-full flex items-center justify-center text-[#601438]">
+                  <CheckCircle2 className="w-10 h-10" strokeWidth={1.5} />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#601438]/70">Email</label>
-                  <input type="email" className="w-full bg-white/60 border border-[#601438]/10 p-4 focus:outline-none focus:border-[#601438] focus:bg-white transition-all text-[#601438]" />
+                  <h2 className="text-3xl font-serif text-[#601438]">Message Sent</h2>
+                  <p className="text-[#601438]/70 font-light">
+                    {state.message}
+                  </p>
                 </div>
+                <button 
+                  onClick={() => window.location.reload()}
+                  className="flex items-center gap-2 text-[#601438] font-bold text-[10px] uppercase tracking-[0.2em] border-b border-[#601438] pb-1 hover:opacity-70 transition-opacity"
+                >
+                  Send another message <ChevronRight className="w-3 h-3" />
+                </button>
               </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#601438]/70">Subject</label>
-                <input type="text" className="w-full bg-white/60 border border-[#601438]/10 p-4 focus:outline-none focus:border-[#601438] focus:bg-white transition-all text-[#601438]" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#601438]/70">Message</label>
-                <textarea rows={5} className="w-full bg-white/60 border border-[#601438]/10 p-4 focus:outline-none focus:border-[#601438] focus:bg-white transition-all text-[#601438] resize-none"></textarea>
-              </div>
-              <button className="w-full bg-[#601438] text-white py-5 font-bold text-[10px] uppercase tracking-[0.3em] hover:bg-[#4a0e2d] transition-all shadow-md mt-4">
-                Send Message
-              </button>
-            </form>
+            ) : (
+              <>
+                <h2 className="text-3xl font-serif text-[#601438] mb-8">Send a Message</h2>
+                <form ref={formRef} action={formAction} className="space-y-6">
+                  {/* Honeypot Field - Hidden from humans */}
+                  <input type="text" name="bot_field" style={{ display: 'none' }} />
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#601438]/70">Name</label>
+                      <input 
+                        required
+                        id="name"
+                        name="name"
+                        type="text" 
+                        className="w-full bg-white/60 border border-[#601438]/10 p-4 focus:outline-none focus:border-[#601438] focus:bg-white transition-all text-[#601438]" 
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#601438]/70">Email</label>
+                      <input 
+                        required
+                        id="email"
+                        name="email"
+                        type="email" 
+                        className="w-full bg-white/60 border border-[#601438]/10 p-4 focus:outline-none focus:border-[#601438] focus:bg-white transition-all text-[#601438]" 
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="subject" className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#601438]/70">Subject</label>
+                    <input 
+                      id="subject"
+                      name="subject"
+                      type="text" 
+                      className="w-full bg-white/60 border border-[#601438]/10 p-4 focus:outline-none focus:border-[#601438] focus:bg-white transition-all text-[#601438]" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#601438]/70">Message</label>
+                    <textarea 
+                      required
+                      id="message"
+                      name="message"
+                      rows={5} 
+                      className="w-full bg-white/60 border border-[#601438]/10 p-4 focus:outline-none focus:border-[#601438] focus:bg-white transition-all text-[#601438] resize-none"
+                    />
+                  </div>
+
+                  {state.message && !state.success && (
+                    <p className="text-red-600 text-sm italic">{state.message}</p>
+                  )}
+
+                  <button 
+                    disabled={isPending}
+                    className="w-full bg-[#601438] text-white py-5 font-bold text-[10px] uppercase tracking-[0.3em] hover:bg-[#4a0e2d] transition-all shadow-md mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isPending ? "Sending..." : "Send Message"}
+                  </button>
+                </form>
+              </>
+            )}
           </div>
         </div>
 

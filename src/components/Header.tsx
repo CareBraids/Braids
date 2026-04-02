@@ -34,72 +34,91 @@ export default function Header({ userName, trendingProducts = [] }: HeaderProps)
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out px-6 md:px-12 py-6",
-          isScrolled ? "bg-white/90 backdrop-blur-xl shadow-lg border-b border-brand-100 py-4" : "bg-transparent"
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out px-4 md:px-12 py-4 md:py-6",
+          isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-brand-100/50 py-3 md:py-4" : "bg-transparent"
         )}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setIsMobileMenuOpen(true)}
-            className="md:hidden text-[#601438] transition-colors hover:opacity-70"
-          >
-            <Menu className="w-6 h-6" />
-          </button>
+        <div className="max-w-7xl mx-auto flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr] lg:grid-cols-3">
+          
+          {/* Left Area: Mobile Menu OR Desktop Logo */}
+          <div className="flex items-center flex-1 md:flex-initial">
+            {/* Mobile Menu Toggle (Left on mobile) */}
+            <button
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="md:hidden text-[#601438] transition-all hover:opacity-70 p-2 -ml-2"
+              aria-label="Open menu"
+            >
+              <div className="flex flex-col gap-1.5 w-6">
+                <span className="h-0.5 w-6 bg-[#601438] rounded-full" />
+                <span className="h-0.5 w-4 bg-[#601438] rounded-full" />
+              </div>
+            </button>
 
-          {/* Logo - Serif Font */}
-          <Link
-            href="/"
-            className="text-2xl md:text-3xl font-semibold tracking-tight font-serif transition-all duration-300 active:opacity-60 text-[#601438]"
-          >
-            CareBraids
-          </Link>
+            {/* Desktop Logo (Left on desktop) */}
+            <Link
+              href="/"
+              className="hidden md:block text-2xl md:text-3xl font-semibold tracking-tight font-serif transition-all duration-300 active:opacity-60 text-[#601438]"
+            >
+              CareBraids
+            </Link>
+          </div>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-8 lg:space-x-10">
-            {[
-              { label: 'Shop', href: '/collections/all' },
-              { label: 'Why CareBraids?', href: '/pages/benefits' },
-              { label: 'Our Story', href: '/pages/about' },
-            ].map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-300 relative group active:opacity-60 hover:opacity-80 text-[#601438]"
-              >
-                {item.label}
-                <span className="absolute -bottom-2 left-0 w-0 h-[1px] transition-all duration-300 group-hover:w-full bg-[#601438]" />
-              </Link>
-            ))}
-          </nav>
+          {/* Center Area: Mobile Logo OR Desktop Nav */}
+          <div className="flex justify-center flex-1 md:flex-initial">
+            {/* Mobile Logo (Centered on mobile) */}
+            <Link
+              href="/"
+              className="md:hidden text-2xl font-semibold tracking-tight font-serif transition-all duration-300 active:opacity-60 text-[#601438]"
+            >
+              CareBraids
+            </Link>
 
-          {/* Actions */}
-          <div className="flex items-center space-x-6 md:space-x-8">
+            {/* Desktop Nav (Centered on desktop) */}
+            <nav className="hidden md:flex items-center space-x-6 lg:space-x-10">
+              {[
+                { label: 'Shop', href: '/collections/all' },
+                { label: 'Why CareBraids?', href: '/pages/benefits' },
+                { label: 'Our Story', href: '/pages/about' },
+              ].map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 relative group active:opacity-60 hover:opacity-80 text-[#601438]"
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1.5 left-0 w-0 h-[1px] transition-all duration-300 group-hover:w-full bg-[#601438]" />
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Right Area: Actions (Search, Cart) */}
+          <div className="flex items-center justify-end space-x-4 md:space-x-6 lg:space-x-8 flex-1 md:flex-initial">
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="transition-all active:opacity-60 hover:opacity-80 text-[#601438]"
+              className="transition-all active:opacity-60 hover:opacity-80 text-[#601438] p-1"
             >
-              <Search className="w-5 h-5" />
+              <Search className="w-5 h-5 md:w-6 md:h-6" />
             </button>
             <form action={navigateToAccount} className="hidden md:block">
               <button
                 type="submit"
-                className="transition-all active:opacity-60 hover:opacity-80 text-[#601438] flex items-center"
+                className="transition-all active:opacity-60 hover:opacity-80 text-[#601438] flex items-center p-1"
               >
                 {userName ? (
                   <span className="text-sm font-medium">Hi, {userName}</span>
                 ) : (
-                  <User className="w-5 h-5" />
+                  <User className="w-6 h-6" />
                 )}
               </button>
             </form>
             <button
               onClick={openCart}
-              className="relative transition-all active:opacity-60 hover:opacity-80 text-[#601438]"
+              className="relative transition-all active:opacity-60 hover:opacity-80 text-[#601438] p-1"
             >
-              <ShoppingBag className="w-5 h-5" />
+              <ShoppingBag className="w-5 h-5 md:w-6 md:h-6" />
               {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 text-white text-[8px] font-bold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white/20 bg-[#601438]">
+                <span className="absolute -top-1 -right-1 text-white text-[8px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-white bg-[#601438]">
                   {cartCount}
                 </span>
               )}

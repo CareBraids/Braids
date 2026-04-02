@@ -44,10 +44,10 @@ const benefits = [
 export default function BenefitsPage() {
   return (
     <main className="bg-white min-h-screen">
-      {/* Hero Section - Professional Match to Home Hero */}
-      <section className="relative h-[80vh] md:h-[85vh] lg:h-[100svh] min-h-[600px] w-full overflow-hidden bg-[#fdf4ff] z-20">
-        {/* Background Image - Clean and sharp, no blurry overlays */}
-        <div className="absolute inset-0">
+      {/* Hero Section - Professional Redesign aligned with Home Hero */}
+      <section className="relative h-screen w-full overflow-hidden bg-[#fafafa] z-20">
+        {/* Background Image Wrapper */}
+        <div className="absolute inset-0 z-0">
           <picture>
             <source media="(max-width: 767px)" srcSet="/image_benefits.jpeg" />
             <source media="(min-width: 768px)" srcSet="/benefit_image.jpeg" />
@@ -55,45 +55,51 @@ export default function BenefitsPage() {
             <img
               src="/benefit_image.jpeg"
               alt="The Science of Care"
-              className="w-full h-full object-cover object-[center_top] md:object-[right_top] absolute inset-0"
+              className="w-full h-full object-cover object-top md:object-[right_top]"
             />
           </picture>
-          {/* Mobile Overlay: Smooth gradient from the bottom, softened at the top to show more model face */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#fae8ff]/95 via-[#fae8ff]/30 to-transparent h-full md:hidden" />
-
-          {/* Desktop Overlay: Adds readability for left-aligned text on larger screens */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#fae8ff]/90 via-white/40 to-transparent w-[80%] md:w-[60%] hidden md:block" />
-
-          <div className="absolute bottom-0 w-full h-[35%] md:h-[35%] bg-gradient-to-t from-[#fff5f7] via-[#fff5f7]/80 to-transparent" />
+          
+          {/* Professional Subtle Overlay - No more "blurry" feel */}
+          {/* Mobile: Soft fade from bottom for text legibility */}
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white/40 via-white/10 to-transparent md:hidden" />
+          
+          {/* Desktop: Gentle side fade */}
+          <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white/30 to-transparent hidden md:block" />
         </div>
 
-        {/* Hero Content text mapped exactly to mockup structure and centered on mobile */}
-        <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-end md:justify-center px-6 md:px-12 pb-48 md:pb-0 pt-20">
-          <div className="w-full text-left md:max-w-2xl mx-0">
+        {/* Hero Content Area */}
+        <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-center px-6 md:px-12 pt-32 md:pt-0">
+          <div className="max-w-2xl text-left">
+            
+            {/* Main Heading - Vibrant Magenta for Desktop, Deep Maroon for Mobile */}
             <motion.h1
-              className="text-[2.4rem] sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight mb-4 md:mb-6 font-serif text-[#fa3ac2] md:text-[#fa3ac2] leading-[1.1] md:leading-[1.05]"
+              className="text-[2.75rem] leading-[1.1] md:text-7xl lg:text-[5.5rem] font-medium tracking-tight mb-6 font-serif text-[#601438] md:text-[#c026d3] drop-shadow-sm"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              What you choose<br className="md:hidden" /> for your hair matters.
+              What you choose<br /> for your hair matters.
             </motion.h1>
 
             <motion.div
-              className="w-full sm:max-w-md md:max-w-xl mx-0 text-lg md:text-xl font-medium md:font-normal tracking-wide leading-relaxed text-[#601438] md:text-[#fa3ac2] drop-shadow-sm md:drop-shadow-none"
+              className="max-w-lg space-y-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="mb-2 md:mb-4 text-[1.25rem] md:text-2xl font-bold font-serif text-[#601438]">CareBraids is different.</div>
-              <div className="opacity-90 leading-snug">Thoughtfully designed fibres,<br className="inline md:hidden" /> made to care for your hair.</div>
+              <div className="text-[1.35rem] md:text-3xl font-bold font-serif text-[#601438]">
+                CareBraids is different.
+              </div>
+              <div className="text-lg md:text-xl font-medium text-[#601438]/90 leading-relaxed md:leading-snug">
+                Thoughtfully designed fibres, made to care for your hair.
+              </div>
             </motion.div>
           </div>
         </div>
 
-        {/* Bottom Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden md:block">
-          <div className="w-[1px] h-20 bg-gradient-to-b from-[#601438]/50 to-transparent" />
+        {/* Subtle Scroll Indicator for desktop */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden md:block opacity-30">
+          <div className="w-[1px] h-12 bg-[#601438]" />
         </div>
       </section>
 
