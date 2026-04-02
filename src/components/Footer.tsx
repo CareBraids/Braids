@@ -46,12 +46,13 @@ export default function Footer() {
           <div className="space-y-6">
             <h4 className="text-2xl font-serif text-[#601438]">Join our VIP List</h4>
             <p className="text-[#601438]/60 font-light">Be first to access new launches and stay up to date with our conscious collections.</p>
-            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-8" onSubmit={(e) => e.preventDefault()} suppressHydrationWarning>
               <div className="relative group max-w-md">
                 <input
                   type="email"
                   placeholder="Email address"
                   className="w-full border-b border-[#601438]/20 py-3 text-sm focus:outline-none focus:border-[#601438] transition-colors bg-transparent placeholder:text-[#601438]/40"
+                  suppressHydrationWarning
                 />
                 <button
                   type="submit"
@@ -111,7 +112,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-[#fdf4ff] flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[#601438]/40 text-xs font-medium">
+          <p className="text-[#601438]/40 text-xs font-medium" suppressHydrationWarning>
             © {new Date().getFullYear()} CareBraids. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-8 text-[10px] uppercase font-bold tracking-[0.2em] text-[#601438]/60">

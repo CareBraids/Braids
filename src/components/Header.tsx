@@ -100,7 +100,7 @@ export default function Header({ userName, trendingProducts = [] }: HeaderProps)
             >
               <Search className="w-5 h-5 md:w-6 md:h-6" />
             </button>
-            <form action={navigateToAccount} className="hidden md:block">
+            <form action={navigateToAccount} className="hidden md:block" suppressHydrationWarning>
               <button
                 type="submit"
                 className="transition-all active:opacity-60 hover:opacity-80 text-[#601438] flex items-center p-1"
@@ -172,7 +172,7 @@ export default function Header({ userName, trendingProducts = [] }: HeaderProps)
                 ))}
               </nav>
               <div className="mt-auto p-6 bg-white border-t border-[#601438]/10">
-                <form action={navigateToAccount} onSubmit={() => setIsMobileMenuOpen(false)}>
+                <form action={navigateToAccount} onSubmit={() => setIsMobileMenuOpen(false)} suppressHydrationWarning>
                   <button
                     type="submit"
                     className="flex items-center gap-4 text-[#601438] font-medium w-full text-left"

@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function Hero() {
   return (
@@ -16,25 +15,25 @@ export default function Hero() {
           <img
             src="/hero_image_1.png"
             alt="Premium Braids"
-            className="w-full h-full object-cover object-top md:object-[right_top]"
+            className="w-full h-full object-cover object-top md:object-[right_top] scale-100 sm:scale-105 md:scale-100 transition-transform duration-700 md:object-[50%_15%]"
           />
         </picture>
-        
+
         {/* Professional Subtle Overlay - No more "blurry" feel */}
         {/* Mobile: Soft fade from bottom for text legibility */}
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white/40 via-white/10 to-transparent md:hidden" />
-        
+
         {/* Desktop: Gentle side fade */}
         <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white/30 to-transparent hidden md:block" />
       </div>
 
       {/* Hero Content Area */}
-      <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-center px-6 md:px-12 pt-32 md:pt-0">
+      <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-end md:justify-center px-6 md:px-12 pb-24 md:pb-0 pt-32 md:pt-0">
         <div className="max-w-2xl text-left">
-          
-          {/* Main Heading - Vibrant Magenta for Desktop, Deep Maroon for Mobile */}
+
+          {/* Main Heading - Original Colors with Enhanced Typography */}
           <motion.h1
-            className="text-[2.75rem] leading-[1.1] md:text-7xl lg:text-[5.5rem] font-medium tracking-tight mb-4 font-serif text-[#601438] md:text-[#c026d3] drop-shadow-sm"
+            className="text-5xl sm:text-[2.75rem] leading-[1.1] md:text-7xl lg:text-[5.5rem] md:leading-[1] font-bold tracking-tight mb-4 font-serif text-[#601438] md:text-[#c026d3] drop-shadow-sm"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -45,7 +44,7 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p
-            className="max-w-lg text-lg md:text-xl font-medium mb-8 text-[#601438]/90 md:text-[#601438] leading-relaxed"
+            className="max-w-lg text-lg md:text-xl font-medium mb-8 text-[#601438]/90 md:text-[#601438] leading-relaxed hidden md:block"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -62,8 +61,8 @@ export default function Hero() {
           >
             <div className="w-8 h-8 rounded-full bg-[#601438] flex items-center justify-center">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
             <span className="font-semibold text-[#601438] text-sm md:text-base pr-1">Lab Tested Fibres</span>
