@@ -9,38 +9,36 @@ export default function Hero() {
       {/* Background Image Wrapper */}
       <div className="absolute inset-0 z-0">
         <picture>
-          <source media="(max-width: 767px)" srcSet="/homepage_mobile_image.png" />
-          <source media="(min-width: 768px)" srcSet="/hero_image_1.png" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/hero_image_1.png"
-            alt="Premium Braids"
-            className="w-full h-full object-cover object-top md:object-[right_top] scale-100 sm:scale-105 md:scale-100 transition-transform duration-700 md:object-[50%_15%]"
-          />
+            <source media="(max-width: 767px)" srcSet="/hero_image_phone.png" />
+            <source media="(min-width: 768px)" srcSet="/hero_image_1.png" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/hero_image_1.png"
+              alt="Premium Braids"
+              className="w-full h-full object-cover object-top md:object-[right_top] transition-transform duration-700 md:object-[50%_15%]"
+            />
         </picture>
 
-        {/* Professional Subtle Overlay - No more "blurry" feel */}
-        {/* Mobile: Soft fade from bottom for text legibility */}
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white/40 via-white/10 to-transparent md:hidden" />
+        {/* Premium Fade-to-Solid Overlays for Flawless Text Legibility */}
+        {/* Mobile: Smooth fade from solid background at the bottom to transparent */}
+        <div className="absolute inset-x-0 bottom-0 h-[30%] bg-gradient-to-t from-[#fafafa]/80 to-transparent md:hidden" />
 
-        {/* Desktop: Gentle side fade */}
-        <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white/30 to-transparent hidden md:block" />
+        {/* Desktop: Elegant fade from the left for content block */}
+        <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#fafafa] via-[#fafafa]/60 to-transparent hidden md:block" />
       </div>
 
       {/* Hero Content Area */}
-      <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-end md:justify-center px-6 md:px-12 pb-24 md:pb-0 pt-32 md:pt-0">
+      <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-end md:justify-center px-6 md:px-12 pb-56 md:pb-0 pt-32 md:pt-0">
         <div className="max-w-2xl text-left">
 
-          {/* Main Heading - Original Colors with Enhanced Typography */}
+          {/* Main Heading - Clean premium typography without needing drop shadows */}
           <motion.h1
-            className="text-5xl sm:text-[2.75rem] leading-[1.1] md:text-7xl lg:text-[5.5rem] md:leading-[1] font-bold tracking-tight mb-4 font-serif text-[#601438] md:text-[#c026d3] drop-shadow-md"
+            className="text-[2.75rem] sm:text-[3.5rem] leading-[1.05] md:text-7xl lg:text-[5.5rem] md:leading-[1] font-bold tracking-tight mb-4 font-serif text-[#c026d3]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            Finally.
-            <br />
-            Braiding Hair You Can Trust.
+            Finally.<br />Braiding Hair You Can Trust.
           </motion.h1>
 
           <motion.p
