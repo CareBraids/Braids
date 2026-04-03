@@ -49,7 +49,7 @@ export default function BenefitsPage() {
         {/* Background Image Wrapper */}
         <div className="absolute inset-0 z-0">
           <picture>
-            <source media="(max-width: 767px)" srcSet="/image_benefits.jpeg" />
+            <source media="(max-width: 767px)" srcSet="/homepage_mobile_image.png" />
             <source media="(min-width: 768px)" srcSet="/benefit_image.jpeg" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -68,12 +68,12 @@ export default function BenefitsPage() {
         </div>
 
         {/* Hero Content Area */}
-        <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-center px-6 md:px-12 pt-32 md:pt-0">
+        <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-end md:justify-center px-6 md:px-12 pb-24 md:pb-0 pt-32 md:pt-0">
           <div className="max-w-2xl text-left">
             
             {/* Main Heading - Vibrant Magenta for Desktop, Deep Maroon for Mobile */}
             <motion.h1
-              className="text-[2.75rem] leading-[1.1] md:text-7xl lg:text-[5.5rem] font-medium tracking-tight mb-6 font-serif text-[#601438] md:text-[#c026d3] drop-shadow-sm"
+              className="text-[2.75rem] leading-[1.1] md:text-7xl lg:text-[5.5rem] font-medium tracking-tight mb-6 font-serif text-[#601438] md:text-[#c026d3] drop-shadow-md"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -87,10 +87,10 @@ export default function BenefitsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="text-[1.35rem] md:text-3xl font-bold font-serif text-[#601438]">
+              <div className="text-2xl md:text-3xl font-bold font-serif text-[#601438] drop-shadow-sm scale-100 sm:scale-110">
                 CareBraids is different.
               </div>
-              <div className="text-lg md:text-xl font-medium text-[#601438]/90 leading-relaxed md:leading-snug">
+              <div className="text-xl md:text-2xl font-bold text-[#601438] leading-relaxed md:leading-snug drop-shadow-sm scale-100 sm:scale-110">
                 Thoughtfully designed fibres, made to care for your hair.
               </div>
             </motion.div>

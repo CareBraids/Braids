@@ -33,7 +33,7 @@ export default function Hero() {
 
           {/* Main Heading - Original Colors with Enhanced Typography */}
           <motion.h1
-            className="text-5xl sm:text-[2.75rem] leading-[1.1] md:text-7xl lg:text-[5.5rem] md:leading-[1] font-bold tracking-tight mb-4 font-serif text-[#601438] md:text-[#c026d3] drop-shadow-sm"
+            className="text-5xl sm:text-[2.75rem] leading-[1.1] md:text-7xl lg:text-[5.5rem] md:leading-[1] font-bold tracking-tight mb-4 font-serif text-[#601438] md:text-[#c026d3] drop-shadow-md"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
