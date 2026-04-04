@@ -45,11 +45,8 @@ export default function BenefitFeatures() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#601438] mb-4 md:mb-6 italic leading-tight">
             Why CareBraids?
           </h2>
-          <p className="text-[#601438]/70 font-light text-lg md:text-xl tracking-tight max-w-3xl mx-auto mb-4">
+          <p className="text-[#601438]/70 font-light text-lg md:text-xl tracking-tight max-w-3xl mx-auto mb-2">
             Many traditional braiding fibres are produced using chemical finishes and harsh alkaline coatings designed to improve handling during manufacturing. These coatings can sometimes irritate the scalp or contribute to dryness during long-term wear.
-          </p>
-          <p className="text-[#601438]/70 font-light text-lg md:text-xl tracking-tight max-w-3xl mx-auto mb-4">
-            Most synthetic braiding hair is designed primarily for cost and appearance. CareBraids was created to prioritise scalp comfort, fibre safety and long-term hair health.
           </p>
           <p className="text-[#601438]/70 font-light text-lg md:text-xl tracking-tight max-w-3xl mx-auto">
             Our fibres are carefully tested and thoughtfully designed to help protect your hair while you wear your favourite styles.
