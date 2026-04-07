@@ -41,14 +41,6 @@ export default function Hero() {
             Finally.<br />Braiding Hair You Can Trust.
           </motion.h1>
 
-          <motion.p
-            className="max-w-lg text-lg md:text-xl font-medium mb-8 text-[#601438]/90 md:text-[#601438] leading-relaxed hidden md:block"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Professionally tested fibres designed to protect your hair and retain moisture.
-          </motion.p>
 
           {/* Badge: Lab Tested Fibres - Refined for "Pro" look */}
           <motion.div

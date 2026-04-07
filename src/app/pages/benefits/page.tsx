@@ -50,10 +50,10 @@ export default function BenefitsPage() {
         <div className="absolute inset-0 z-0">
           <picture>
             <source media="(max-width: 767px)" srcSet="/hero_image_phone.png" />
-            <source media="(min-width: 768px)" srcSet="/benefit_image.jpeg" />
+            <source media="(min-width: 768px)" srcSet="/hero_image_1.png" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/benefit_image.jpeg"
+              src="/hero_image_1.png"
               alt="The Science of Care"
               className="w-full h-full object-cover object-top md:object-[right_top]"
             />

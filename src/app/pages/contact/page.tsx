@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState, useEffect, useRef } from "react";
-import { Mail, MapPin, Phone, CheckCircle2, ChevronRight } from "lucide-react";
+import { Mail, CheckCircle2, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { sendContactEmail } from "./actions";
 
@@ -55,54 +55,18 @@ export default function ContactPage() {
 
                 <div className="flex items-start gap-6">
                   <div className="p-4 bg-white/80 backdrop-blur-md shadow-sm border border-[#601438]/10 rounded-none">
-                    <MapPin className="w-6 h-6 text-[#601438]" strokeWidth={1.5} />
-                  </div>
-                  <div className="pt-1">
-                    <h3 className="font-serif text-[#601438] text-xl mb-2">Visit Us</h3>
-                    <p>CareBraids Studio</p>
-                    <p>123 Braiding Ave, Suite 100</p>
-                    <p>Style City, SC 12345</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-6">
-                  <div className="p-4 bg-white/80 backdrop-blur-md shadow-sm border border-[#601438]/10 rounded-none">
-                    <Phone className="w-6 h-6 text-[#601438]" strokeWidth={1.5} />
-                  </div>
-                  <div className="pt-1">
-                    <h3 className="font-serif text-[#601438] text-xl mb-2">Call Us</h3>
-                    <p>+250 794 523 824</p>
-                    <p className="text-sm text-[#601438]/60 mt-1 uppercase tracking-widest text-[10px] font-medium">Mon-Sat 9am-7pm</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-6">
-                  <div className="p-4 bg-white/80 backdrop-blur-md shadow-sm border border-[#601438]/10 rounded-none">
                     <Mail className="w-6 h-6 text-[#601438]" strokeWidth={1.5} />
                   </div>
                   <div className="pt-1">
                     <h3 className="font-serif text-[#601438] text-xl mb-2">Email Us</h3>
                     <p>support@carebraids.com</p>
-                    <p>inquiries@carebraids.com</p>
                   </div>
                 </div>
 
               </div>
             </div>
 
-            <div className="space-y-6 pt-8 border-t border-[#601438]/10">
-              <h2 className="text-2xl font-serif text-[#601438]">Hours</h2>
-              <div className="space-y-3 text-[#601438]/90 font-light">
-                <div className="flex justify-between max-w-sm border-b border-[#601438]/10 pb-3">
-                  <span>Monday - Saturday</span>
-                  <span className="font-medium">9:00 AM - 7:00 PM</span>
-                </div>
-                <div className="flex justify-between max-w-sm border-b border-[#601438]/10 pb-3">
-                  <span>Sunday</span>
-                  <span className="italic text-[#601438]/60">Closed</span>
-                </div>
-              </div>
-            </div>
+
           </div>
 
           {/* Contact Form */}
